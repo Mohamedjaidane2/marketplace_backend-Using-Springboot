@@ -1,2 +1,4 @@
-package com.example.marketplace.entity;public class Account {
+package com.example.marketplace.entity;
+
+public class Account {
 }

@@ -1,6 +1,6 @@
-package com.example.marketplace.enum
+package com.example.marketplace.Enum
 
-enum class Role_enum {
+enum class ERole {
     ADMIN,
     SUPERADMIN
 }
