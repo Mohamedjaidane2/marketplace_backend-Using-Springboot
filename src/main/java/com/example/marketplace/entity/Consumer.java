@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+//@Builder
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "consumer")
 public class Consumer extends User {
@@ -29,9 +29,9 @@ public class Consumer extends User {
     @OneToMany(mappedBy="consumer")
     private List<FeedBack> feedBacks;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "account_id", nullable = false)
-    private Account account;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "account_id", nullable = false)
+//    private Account account;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "history_id", nullable = false)
