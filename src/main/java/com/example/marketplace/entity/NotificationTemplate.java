@@ -24,4 +24,5 @@ public class NotificationTemplate {
     @OneToMany(mappedBy="template")
     private List<Notification> notifications;
 
+
 }

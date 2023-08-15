@@ -24,10 +24,13 @@ public class History {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer history_id;
+    private int history_id;
 
 //    @ManyToOne
 //    @JoinColumn(name = "advertisment_id", nullable = false)
 //    private Advertisment advertisment;
+    @ManyToOne
+    @JoinColumn(name = "advertisment_id", nullable = false)
+    private Advertisement advertisment;
 
 }

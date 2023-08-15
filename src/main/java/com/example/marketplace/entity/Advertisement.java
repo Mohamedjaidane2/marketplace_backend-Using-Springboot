@@ -1,6 +1,7 @@
 package com.example.marketplace.entity;
 
-import com.example.marketplace.Enum.EAdvertisementStatus;
+import com.example.marketplace.Enum.EAdvertisementSoldStats;
+import com.example.marketplace.Enum.EAdvertisementStats;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,21 +26,19 @@ public class Advertisement {
     private String title;
     private String description;
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "seller_id")
-//    private Account seller;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "seller_id")
+    private Account account;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "product_id")
     private Product product;
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "delivery_details_id")
-//    private DeliveryDetails deliveryDetails;
+    @Enumerated(EnumType.STRING)
+    private EAdvertisementStats advertisementStats;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "advertisement_status")
-    private EAdvertisementStatus advertisementStatus;
+    private EAdvertisementSoldStats advertisementSoldStats;
 
 //    @OneToMany(mappedBy = "advertisement", fetch = FetchType.LAZY)
 //    private List<RequestedDiscount> discountRequests;
@@ -47,6 +46,9 @@ public class Advertisement {
     private Float price;
     @Column(name = "old_price")
     private Float oldPrice;
+
+    @OneToMany(mappedBy = "advertisement", fetch = FetchType.LAZY)
+    private List<RequestOrder> requestOrders;  // New relationship
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)

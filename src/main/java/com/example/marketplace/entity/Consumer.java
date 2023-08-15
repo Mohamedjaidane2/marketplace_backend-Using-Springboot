@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -22,7 +23,8 @@ public class Consumer extends User {
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    private java.util.Date createdTimestamp;
+    @Column(name = "creation_date", updatable = false)
+    private Date creationDate;
 
     private String email;
 
@@ -32,6 +34,9 @@ public class Consumer extends User {
 //    @OneToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "account_id", nullable = false)
 //    private Account account;
+    //@OneToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "account_id", nullable = false)
+    //private Account account;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "history_id", nullable = false)

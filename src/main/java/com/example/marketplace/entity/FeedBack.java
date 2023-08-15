@@ -10,6 +10,7 @@ import net.bytebuddy.implementation.bind.annotation.Super;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 
@@ -34,7 +35,8 @@ public class FeedBack {
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    private java.util.Date createdTimestamp;
+    @Column(name = "creation_date", updatable = false)
+    private Date creationDate;
 
     @ManyToOne
     @JoinColumn(name = "consumer_id", nullable = false)
