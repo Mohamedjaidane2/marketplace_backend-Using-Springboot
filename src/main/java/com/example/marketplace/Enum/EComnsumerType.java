@@ -1,2 +1,6 @@
-package com.example.marketplace.Enum;public enum EComnsumerType {
+package com.example.marketplace.Enum;
+
+public enum EComnsumerType {
+    INDIVIDUAL,
+    BUSINESS,
 }

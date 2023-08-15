@@ -1,6 +1,7 @@
 package com.example.marketplace.entity;
 
 import com.example.marketplace.Enum.EAdvertisementStatus;
+import com.example.marketplace.Enum.ESellerLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +21,7 @@ import java.util.List;
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer accound_id;
+    private Integer account_id;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
@@ -31,9 +32,9 @@ public class Account {
     @JoinColumn(name = "wallet_id")
     private Wallet wallet;
 
-//  @OneToOne(fetch = FetchType.EAGER)
-//  @JoinColumn(name = "information_id")
-//  private Information information;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "information_id")
+    private Information information;
 
 //    @OneToMany(mappedBy="account")
 //    private List<Sales> sales;
@@ -41,8 +42,8 @@ public class Account {
 //    @OneToMany(mappedBy="account")
 //    private List<RequestOrder> requestOrders;
 
-//    @OneToMany(mappedBy="account")
-//    private List<BankData> bankData;
+    @OneToMany(mappedBy="account")
+    private List<BankData> bankData;
 
     @OneToMany(mappedBy="account")
     private List<Order> orders;
@@ -56,7 +57,7 @@ public class Account {
     @OneToMany(mappedBy="account")
     private List<Advertisement> advertisements;
 
-//    @Enumerated(EnumType.STRING)
-//    private ESellerLevel sellerLevel;
+    @Enumerated(EnumType.STRING)
+    private ESellerLevel sellerLevel;
 
 }
