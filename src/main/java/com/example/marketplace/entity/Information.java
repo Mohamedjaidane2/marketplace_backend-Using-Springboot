@@ -1,15 +1,12 @@
 package com.example.marketplace.entity;
 
-import com.example.marketplace.Enum.EAdvertisementStatus;
 import com.example.marketplace.Enum.EComnsumerType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.List;
 
 @Entity

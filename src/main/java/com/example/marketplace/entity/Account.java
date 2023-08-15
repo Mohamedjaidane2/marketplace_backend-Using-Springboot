@@ -1,5 +1,6 @@
 package com.example.marketplace.entity;
 
+import com.example.marketplace.Enum.ESellerLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
