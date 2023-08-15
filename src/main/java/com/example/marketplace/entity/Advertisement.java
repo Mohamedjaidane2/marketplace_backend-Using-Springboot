@@ -40,6 +40,9 @@ public class Advertisement {
     @Enumerated(EnumType.STRING)
     private EAdvertisementSoldStats advertisementSoldStats;
 
+    @OneToMany(mappedBy="advertisement")
+    private List<Order> orders;
+
 //    @OneToMany(mappedBy = "advertisement", fetch = FetchType.LAZY)
 //    private List<RequestedDiscount> discountRequests;
 
@@ -54,4 +57,5 @@ public class Advertisement {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "creation_date", updatable = false)
     private Date creationDate;
+
 }

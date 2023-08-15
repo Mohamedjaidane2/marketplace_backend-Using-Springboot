@@ -26,9 +26,6 @@ public class Order {
     @Column(name = "order_date", updatable = false)
     private Date orderDate;
 
-    @ManyToOne
-    @JoinColumn(name = "account_id", nullable = false)
-    private Account account;
 
     private Float totalPrice;
 
@@ -36,8 +33,11 @@ public class Order {
     private EOrderStatus orderStatus;
 
 
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "advertisement_id")
+    @ManyToOne
+    @JoinColumn(name = "advertisement_id", nullable = false)
     private Advertisement advertisement;
 
+    @ManyToOne
+    @JoinColumn(name = "account_id", nullable = false)
+    private Account account;
 }
