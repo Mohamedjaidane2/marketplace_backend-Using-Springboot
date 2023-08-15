@@ -7,13 +7,13 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "consumer")
 public class Consumer extends User {
@@ -22,16 +22,17 @@ public class Consumer extends User {
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    private java.util.Date createdTimestamp;
+    @Column(name = "creation_date", updatable = false)
+    private Date creationDate;
 
     private String email;
 
     @OneToMany(mappedBy="consumer")
     private List<FeedBack> feedBacks;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "account_id", nullable = false)
-    private Account account;
+    //@OneToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "account_id", nullable = false)
+    //private Account account;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "history_id", nullable = false)

@@ -9,6 +9,7 @@ import net.bytebuddy.implementation.bind.annotation.Super;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 
@@ -33,7 +34,8 @@ public class User {
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    private java.util.Date createdTimestamp;
+    @Column(name = "creation_date", updatable = false)
+    private Date creationDate;
 
 
     @OneToMany(mappedBy="user")

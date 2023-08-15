@@ -25,9 +25,9 @@ public class Advertisement {
     private String title;
     private String description;
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "seller_id")
-//    private Account seller;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "seller_id")
+    private Account account;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "product_id")

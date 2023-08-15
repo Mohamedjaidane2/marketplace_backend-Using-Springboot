@@ -28,6 +28,6 @@ public class History {
 
     @ManyToOne
     @JoinColumn(name = "advertisment_id", nullable = false)
-    private Advertisment advertisment;
+    private Advertisement advertisment;
 
 }
