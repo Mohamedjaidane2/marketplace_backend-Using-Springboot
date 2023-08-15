@@ -1,10 +1,7 @@
 package com.example.marketplace.entity;
 
 import com.example.marketplace.Enum.ESellerLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -20,44 +17,42 @@ import java.util.List;
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer account_id;
+    private Integer accountId;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "creation_date", updatable = false)
     private Date creationDate;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "wallet_id")
     private Wallet wallet;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "information_id")
     private Information information;
 
-    @OneToMany(mappedBy = "account")
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Sales> sales;
 
-
-    @OneToMany(mappedBy="account")
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<BankData> bankData;
 
-    @OneToMany(mappedBy="account")
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Order> orders;
 
-    @OneToMany(mappedBy = "account")
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Favorites> favorites;
 
-    @OneToMany(mappedBy = "advertisement", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<RequestedDiscount> discountRequests;
 
-    @OneToMany(mappedBy="account")
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Advertisement> advertisements;
 
-    @OneToMany(mappedBy = "account")
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<RequestOrder> requestOrders;
 
     @Enumerated(EnumType.STRING)
     private ESellerLevel sellerLevel;
-
 }

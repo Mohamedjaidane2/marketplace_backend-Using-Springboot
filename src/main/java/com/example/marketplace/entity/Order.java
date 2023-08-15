@@ -1,10 +1,7 @@
 package com.example.marketplace.entity;
 
 import com.example.marketplace.Enum.EOrderStatus;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -15,23 +12,21 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "order")
+@Table(name = "orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer order_id;
+    private Integer orderId;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "order_date", updatable = false)
     private Date orderDate;
 
-
     private Float totalPrice;
 
     @Enumerated(EnumType.STRING)
     private EOrderStatus orderStatus;
-
 
     @ManyToOne
     @JoinColumn(name = "advertisement_id", nullable = false)

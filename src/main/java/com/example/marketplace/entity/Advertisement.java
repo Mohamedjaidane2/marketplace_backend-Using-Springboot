@@ -40,22 +40,20 @@ public class Advertisement {
     @Enumerated(EnumType.STRING)
     private EAdvertisementSoldStats advertisementSoldStats;
 
-    @OneToMany(mappedBy="advertisement")
+    @OneToMany(mappedBy = "advertisement", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Order> orders;
-
-//    @OneToMany(mappedBy = "advertisement", fetch = FetchType.LAZY)
-//    private List<RequestedDiscount> discountRequests;
 
     private Float price;
     @Column(name = "old_price")
     private Float oldPrice;
 
-    @OneToMany(mappedBy = "advertisement", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "advertisement", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<RequestOrder> requestOrders;  // New relationship
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "creation_date", updatable = false)
     private Date creationDate;
+
 
 }
