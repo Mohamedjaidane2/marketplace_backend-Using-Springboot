@@ -1,4 +1,6 @@
 package com.example.marketplace.service.Impl;
 
-public class HistoryServiceImpl implements IHistoryService{
+import com.example.marketplace.service.IHistoryServices;
+
+public class HistoryServiceImpl implements IHistoryServices {
 }

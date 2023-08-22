@@ -1,7 +1,8 @@
 package com.example.marketplace.service.Impl;
 
+import com.example.marketplace.service.IOrderServices;
 import org.springframework.stereotype.Service;
 
 @Service
-public class OrderServiceImpl implements IOrderService{
+public class OrderServiceImpl implements IOrderServices {
 }

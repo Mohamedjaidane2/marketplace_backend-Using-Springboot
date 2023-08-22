@@ -1,7 +1,8 @@
 package com.example.marketplace.service.Impl;
 
+import com.example.marketplace.service.IUserServices;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements IUserService{
+public class UserServiceImpl implements IUserServices {
 }
