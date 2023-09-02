@@ -22,9 +22,9 @@ public class Information {
 
     private String profilePicture;
 
-    private String FirstName;
+    private String firstName;
 
-    private String LastName;
+    private String lastName;
 
     private String bio;
 
@@ -32,7 +32,6 @@ public class Information {
 
     @OneToMany(mappedBy="information")
     private List<Address> addresses;
-
 
     @Enumerated(EnumType.STRING)
     @Column(name = "advertisement_status")
