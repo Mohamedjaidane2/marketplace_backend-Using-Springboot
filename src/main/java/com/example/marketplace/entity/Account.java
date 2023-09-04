@@ -45,7 +45,7 @@ public class Account {
     private List<Favorites> favorites;
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
-    private List<RequestedDiscount> discountRequests;
+    private List<DiscountRequest> discountRequests;
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Advertisement> advertisements;

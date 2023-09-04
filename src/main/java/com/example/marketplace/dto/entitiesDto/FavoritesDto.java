@@ -19,7 +19,7 @@ import java.util.List;
 @Data
 public class FavoritesDto {
 
-    private int favoritesId;
+    private Integer favoritesId;
 
     private AccountDto account;
 

@@ -15,7 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 @Table(name = "requested_discount")
-public class RequestedDiscount {
+public class DiscountRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int requestedDiscountId;

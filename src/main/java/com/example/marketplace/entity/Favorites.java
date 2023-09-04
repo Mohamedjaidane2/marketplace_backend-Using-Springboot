@@ -16,7 +16,7 @@ import javax.persistence.*;
 public class Favorites {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int favoritesId;
+    private Integer favoritesId;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "account_id")

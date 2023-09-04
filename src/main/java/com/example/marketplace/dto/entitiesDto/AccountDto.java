@@ -32,7 +32,7 @@ public class AccountDto {
 
     private List<FavoritesDto> favorites;
 
-    private List<RequestedDiscountDto> discountRequests;
+    private List<DiscountRequestDto> discountRequests;
 
     private List<AdvertisementDto> advertisements;
 
@@ -64,7 +64,7 @@ public class AccountDto {
                 .advertisements(AdvertisementDto.customListMapping(account.getAdvertisements()))
                 .bankData(BankDataDto.customListMapping(account.getBankData()))
                 .creationDate(account.getCreationDate())
-                .discountRequests(RequestedDiscountDto.customListMapping(account.getDiscountRequests()))
+                .discountRequests(DiscountRequestDto.customListMapping(account.getDiscountRequests()))
                 .favorites(FavoritesDto.customListMapping(account.getFavorites()))
                 .information(InformationDto.customMapping(account.getInformation()))
                 .orders(OrderDto.customListMapping(account.getOrders()))

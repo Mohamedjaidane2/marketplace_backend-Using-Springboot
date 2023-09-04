@@ -3,7 +3,7 @@ package com.example.marketplace.service.Impl;
 import com.example.marketplace.dto.SuccessDto;
 import com.example.marketplace.dto.entitiesDto.AccountDto;
 import com.example.marketplace.dto.entitiesDto.AdvertisementDto;
-import com.example.marketplace.dto.entitiesDto.RequestedDiscountDto;
+import com.example.marketplace.dto.entitiesDto.DiscountRequestDto;
 import com.example.marketplace.service.IAdvertisementService;
 import org.springframework.stereotype.Service;
 
@@ -47,12 +47,12 @@ public class AdvertisementServiceImpl implements IAdvertisementService {
     }
 
     @Override
-    public SuccessDto acceptDiscount(RequestedDiscountDto requestedDiscountDto) {
+    public SuccessDto acceptDiscount(DiscountRequestDto discountRequestDto) {
         return null;
     }
 
     @Override
-    public SuccessDto declineDiscount(RequestedDiscountDto requestedDiscountDto) {
+    public SuccessDto declineDiscount(DiscountRequestDto discountRequestDto) {
         return null;
     }
 }
