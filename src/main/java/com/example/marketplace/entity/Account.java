@@ -50,9 +50,6 @@ public class Account {
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Advertisement> advertisements;
 
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
-    private List<RequestOrder> requestOrders;
-
     @Enumerated(EnumType.STRING)
     private ESellerLevel sellerLevel;
 }
