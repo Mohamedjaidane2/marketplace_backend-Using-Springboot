@@ -1,5 +1,7 @@
 package com.example.marketplace.dto.FavoritesDtos;
 
+import com.example.marketplace.dto.AccountDtos.AccountDto;
+import com.example.marketplace.dto.AdvertisementDtos.AdvertisementDto;
 import com.example.marketplace.entity.Account;
 import com.example.marketplace.entity.Advertisement;
 import com.example.marketplace.entity.Consumer;

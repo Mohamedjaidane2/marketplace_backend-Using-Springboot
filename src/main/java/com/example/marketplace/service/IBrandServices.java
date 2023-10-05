@@ -1,16 +1,16 @@
 package com.example.marketplace.service;
 
-import com.example.marketplace.dto.SuccessDto;
-import com.example.marketplace.dto.entitiesDto.AccountDto;
-import com.example.marketplace.dto.entitiesDto.BankDataDto;
-import com.example.marketplace.dto.entitiesDto.BrandDto;
+import com.example.marketplace.dto.BrandDtos.BrandDto;
+import com.example.marketplace.dto.BrandDtos.BrandNewDto;
+import com.example.marketplace.dto.BrandDtos.BrandUpdateDto;
+import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 
 import java.util.List;
 
 public interface IBrandServices {
-    SuccessDto addBrand(BrandDto brandDto);
+    SuccessDto addBrand(BrandNewDto brandNewDto);
 
-    SuccessDto updateBrand(BrandDto brandDto);
+    SuccessDto updateBrand(BrandUpdateDto brandUpdateDto);
 
 
     BrandDto getBrandById(String brandId);

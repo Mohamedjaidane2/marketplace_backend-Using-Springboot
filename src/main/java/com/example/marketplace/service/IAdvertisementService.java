@@ -1,27 +1,29 @@
 package com.example.marketplace.service;
 
-import com.example.marketplace.dto.SuccessDto;
-import com.example.marketplace.dto.entitiesDto.AccountDto;
-import com.example.marketplace.dto.entitiesDto.AdvertisementDto;
-import com.example.marketplace.dto.entitiesDto.DiscountRequestDto;
+import com.example.marketplace.dto.AccountDtos.AccountDto;
+import com.example.marketplace.dto.AdvertisementDtos.AdvertisementDto;
+import com.example.marketplace.dto.AdvertisementDtos.AdvertisementNewDto;
+import com.example.marketplace.dto.AdvertisementDtos.AdvertisementUpdateDtos;
+import com.example.marketplace.dto.DiscountRequestDtos.DiscountRequestDto;
+import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 
 import java.util.List;
 
 public interface IAdvertisementService {
-    SuccessDto postAdvertisement(AdvertisementDto advertisementDto);
+    SuccessDto postAdvertisement(AdvertisementNewDto advertisementNewDto);
 
-    SuccessDto updateAdvertisement(AdvertisementDto advertisementDto);
+    SuccessDto updateAdvertisement(AdvertisementUpdateDtos advertisementUpdateDto);
 
 
-    AdvertisementDto getAdvertisementById(String advertismentId);
+    AdvertisementDto getAdvertisementById(String advertisementId);
 
-    List<AdvertisementDto> getAdvertismentByAccount(AccountDto accountDto);
+    List<AdvertisementDto> getAdvertisementByAccount(AccountDto accountDto);
 
     List<AdvertisementDto> getAllAdvertisement();
 
     List<AdvertisementDto> getMyFeedList(AccountDto accountDto);
 
-    SuccessDto deleteAdvertisement(Integer advertismentId );
+    SuccessDto deleteAdvertisement(Integer advertisementId );
 
     SuccessDto acceptDiscount(DiscountRequestDto discountRequestDto);
 

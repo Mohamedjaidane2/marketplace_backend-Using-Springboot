@@ -1,17 +1,16 @@
 package com.example.marketplace.service;
 
-import com.example.marketplace.dto.SuccessDto;
-import com.example.marketplace.dto.entitiesDto.AccountDto;
-import com.example.marketplace.dto.entitiesDto.BankDataDto;
-import com.example.marketplace.dto.entitiesDto.BrandDto;
-import com.example.marketplace.dto.entitiesDto.CategoryDto;
+import com.example.marketplace.dto.CategoryDtos.CategoryDto;
+import com.example.marketplace.dto.CategoryDtos.CategoryNewDto;
+import com.example.marketplace.dto.CategoryDtos.CategoryUpdateDto;
+import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 
 import java.util.List;
 
 public interface ICategoryServices {
-    SuccessDto addCategory(CategoryDto categoryDto);
+    SuccessDto addCategory(CategoryNewDto categoryNewDto);
 
-    SuccessDto updateCategory(CategoryDto categoryDto);
+    SuccessDto updateCategory(CategoryUpdateDto categoryUpdateDto);
 
 
     CategoryDto getCategoryById(String categoryId);

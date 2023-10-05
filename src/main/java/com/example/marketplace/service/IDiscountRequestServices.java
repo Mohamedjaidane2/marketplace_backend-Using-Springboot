@@ -1,18 +1,19 @@
 package com.example.marketplace.service;
 
-import com.example.marketplace.dto.SuccessDto;
-import com.example.marketplace.dto.entitiesDto.CategoryDto;
-import com.example.marketplace.dto.entitiesDto.DiscountRequestDto;
+import com.example.marketplace.dto.DiscountRequestDtos.DiscountRequestDto;
+import com.example.marketplace.dto.DiscountRequestDtos.DiscountRequestNewDto;
+import com.example.marketplace.dto.DiscountRequestDtos.DiscountRequestUpdateDto;
+import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 
 import java.util.List;
 
 public interface IDiscountRequestServices {
 
-    SuccessDto sendDiscount(DiscountRequestDto discountRequestDto);
+    SuccessDto sendDiscount(DiscountRequestNewDto discountRequestNewDto);
 
-    SuccessDto counterDiscount(DiscountRequestDto discountRequestDto);
+    SuccessDto counterDiscount(DiscountRequestNewDto discountRequestNewDto);
 
-    SuccessDto updateDiscount(DiscountRequestDto discountRequestDto);
+    SuccessDto updateDiscount(DiscountRequestUpdateDto discountRequestUpdateDto);
 
     DiscountRequestDto getDiscountById(String discountId);
 

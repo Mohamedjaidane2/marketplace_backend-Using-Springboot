@@ -1,5 +1,6 @@
 package com.example.marketplace.dto.NotificationDtos;
 
+import com.example.marketplace.dto.NotificationTemplateDtos.NotificationTemplateDto;
 import com.example.marketplace.entity.Information;
 import com.example.marketplace.entity.Notification;
 import com.example.marketplace.entity.NotificationTemplate;

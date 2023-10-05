@@ -7,8 +7,4 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ConsumerServiceImpl implements IConsumerServices {
-    @Override
-    public SuccessDto Register(ConsumerDto consumerDto) {
-        return null;
-    }
 }

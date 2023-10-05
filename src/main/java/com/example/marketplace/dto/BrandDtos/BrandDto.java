@@ -1,5 +1,6 @@
 package com.example.marketplace.dto.BrandDtos;
 
+import com.example.marketplace.dto.SubCategoryDtos.SubCategoryDto;
 import com.example.marketplace.entity.BankData;
 import com.example.marketplace.entity.Brand;
 import com.example.marketplace.entity.SubCategory;

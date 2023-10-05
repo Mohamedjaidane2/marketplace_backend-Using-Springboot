@@ -10,28 +10,4 @@ import java.util.List;
 
 @Service
 public class OrderServiceImpl implements IOrderServices {
-    @Override
-    public SuccessDto toOrder(OrderDto orderDto) {
-        return null;
-    }
-
-    @Override
-    public OrderDto getOrderById(String orderId) {
-        return null;
-    }
-
-    @Override
-    public List<OrderDto> getOrderByAccount(AccountDto accountDto) {
-        return null;
-    }
-
-    @Override
-    public SuccessDto cancelOrderById(String orderId) {
-        return null;
-    }
-
-    @Override
-    public List<OrderDto> getAllOrders() {
-        return null;
-    }
 }

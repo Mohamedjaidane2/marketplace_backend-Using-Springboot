@@ -1,13 +1,13 @@
 package com.example.marketplace.service;
 
-import com.example.marketplace.dto.SuccessDto;
-import com.example.marketplace.dto.entitiesDto.NotificationDto;
-import com.example.marketplace.entity.Notification;
+import com.example.marketplace.dto.NotificationDtos.NotificationDto;
+import com.example.marketplace.dto.NotificationDtos.NotificationNewDto;
+import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 
 import java.util.List;
 
 public interface INotificationServices {
-    SuccessDto createNotification(NotificationDto notificationDto);
+    SuccessDto createNotification(NotificationNewDto notificationNewDto);
 
     NotificationDto getNotificationById(Integer notificationId) ;
 

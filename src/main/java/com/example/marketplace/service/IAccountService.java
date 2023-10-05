@@ -1,8 +1,6 @@
 package com.example.marketplace.service;
-
-import com.example.marketplace.dto.SuccessDto;
-import com.example.marketplace.dto.entitiesDto.AccountDto;
-import com.example.marketplace.entity.Account;
+import com.example.marketplace.dto.AccountDtos.AccountDto;
+import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 import com.example.marketplace.entity.User;
 
 import java.util.List;

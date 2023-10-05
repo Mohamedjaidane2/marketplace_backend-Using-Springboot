@@ -1,5 +1,6 @@
 package com.example.marketplace.dto.UserDtos;
 
+import com.example.marketplace.dto.NotificationDtos.NotificationDto;
 import com.example.marketplace.entity.Notification;
 import com.example.marketplace.entity.Transaction;
 import com.example.marketplace.entity.User;

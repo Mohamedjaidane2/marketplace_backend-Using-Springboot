@@ -10,33 +10,4 @@ import java.util.List;
 
 @Service
 public class BankDataServiceImpl implements IBankDataService {
-    @Override
-    public SuccessDto addBankData(BankDataDto bankDataDto) {
-        return null;
-    }
-
-    @Override
-    public SuccessDto updateBankData(BankDataDto bankDataDto) {
-        return null;
-    }
-
-    @Override
-    public BankDataDto getBankDataById(String bankDataId) {
-        return null;
-    }
-
-    @Override
-    public BankDataDto getBankDataByAccount(AccountDto accountDto) {
-        return null;
-    }
-
-    @Override
-    public List<BankDataDto> getAllBankData() {
-        return null;
-    }
-
-    @Override
-    public SuccessDto deleteBankDataById(String bankDataId) {
-        return null;
-    }
 }

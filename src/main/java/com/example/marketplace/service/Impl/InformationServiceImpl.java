@@ -10,33 +10,4 @@ import java.util.List;
 
 @Service
 public class InformationServiceImpl implements IInformationServices {
-    @Override
-    public SuccessDto addInformation(InformationDto informationDto) {
-        return null;
-    }
-
-    @Override
-    public SuccessDto updateInformation(InformationDto informationDto) {
-        return null;
-    }
-
-    @Override
-    public InformationDto getInformationById(String informationId) {
-        return null;
-    }
-
-    @Override
-    public InformationDto getInformationByAccount(AccountDto accountDto) {
-        return null;
-    }
-
-    @Override
-    public List<InformationDto> getAllInformation() {
-        return null;
-    }
-
-    @Override
-    public SuccessDto deleteInformationById(String informationId) {
-        return null;
-    }
 }

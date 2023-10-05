@@ -1,5 +1,6 @@
 package com.example.marketplace.dto.NotificationTemplateDtos;
 
+import com.example.marketplace.dto.NotificationDtos.NotificationDto;
 import com.example.marketplace.entity.Notification;
 import com.example.marketplace.entity.NotificationTemplate;
 import lombok.AllArgsConstructor;
@@ -14,7 +15,7 @@ import java.util.List;
 @Data
 public class NotificationTemplateDto {
 
-    private Integer notificationTemplate;
+    private Integer notificationTemplateId;
 
     private String type;
 
@@ -27,7 +28,7 @@ public class NotificationTemplateDto {
     @Override
     public String toString() {
         return "NotificationTemplateDto{" +
-                "notificationTemplate=" + notificationTemplate +
+                "notificationTemplate=" + notificationTemplateId +
                 ", type='" + type + '\'' +
                 ", subjectTemplate='" + subjectTemplate + '\'' +
                 ", bodyTemplate='" + bodyTemplate + '\'' +
@@ -37,7 +38,7 @@ public class NotificationTemplateDto {
 
     public static NotificationTemplateDto customMapping (NotificationTemplate template){
         return NotificationTemplateDto.builder()
-                .notificationTemplate(template.getNotificationTemplate())
+                .notificationTemplateId(template.getNotificationTemplate())
                 .type(template.getType())
                 .subjectTemplate(template.getSubjectTemplate())
                 .bodyTemplate(template.getBodyTemplate())

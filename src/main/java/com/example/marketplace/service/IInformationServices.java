@@ -1,17 +1,17 @@
 package com.example.marketplace.service;
 
-import com.example.marketplace.dto.SuccessDto;
-import com.example.marketplace.dto.entitiesDto.AccountDto;
-import com.example.marketplace.dto.entitiesDto.BankDataDto;
-import com.example.marketplace.dto.entitiesDto.BrandDto;
-import com.example.marketplace.dto.entitiesDto.InformationDto;
+import com.example.marketplace.dto.AccountDtos.AccountDto;
+import com.example.marketplace.dto.InformationDtos.InformationDto;
+import com.example.marketplace.dto.InformationDtos.InformationNewDto;
+import com.example.marketplace.dto.InformationDtos.InformationUpdateDto;
+import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 
 import java.util.List;
 
 public interface IInformationServices {
-    SuccessDto addInformation(InformationDto informationDto);
+    SuccessDto addInformation(InformationNewDto informationNewDto);
 
-    SuccessDto updateInformation(InformationDto informationDto);
+    SuccessDto updateInformation(InformationUpdateDto informationUpdateDto);
 
 
     InformationDto getInformationById(String informationId);

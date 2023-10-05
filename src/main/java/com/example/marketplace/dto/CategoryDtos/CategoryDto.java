@@ -1,5 +1,6 @@
 package com.example.marketplace.dto.CategoryDtos;
 
+import com.example.marketplace.dto.SubCategoryDtos.SubCategoryDto;
 import com.example.marketplace.entity.Category;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

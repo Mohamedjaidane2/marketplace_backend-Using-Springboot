@@ -1,5 +1,6 @@
 package com.example.marketplace.dto.TransactionDtos;
 
+import com.example.marketplace.dto.WalletDtos.WalletDto;
 import com.example.marketplace.entity.Order;
 import com.example.marketplace.entity.Tag;
 import com.example.marketplace.entity.Transaction;

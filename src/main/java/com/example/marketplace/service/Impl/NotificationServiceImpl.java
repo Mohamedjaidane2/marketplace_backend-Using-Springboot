@@ -9,29 +9,4 @@ import java.util.List;
 
 @Service
 public class NotificationServiceImpl implements INotificationServices {
-
-    @Override
-    public SuccessDto createNotification(NotificationDto notificationDto) {
-        return null;
-    }
-
-    @Override
-    public NotificationDto getNotificationById(Integer notificationId) {
-        return null;
-    }
-
-    @Override
-    public List<NotificationDto> getNotificationsByUserId(Integer userId) {
-        return null;
-    }
-
-    @Override
-    public SuccessDto markNotificationAsRead(Integer notificationId) {
-        return null;
-    }
-
-    @Override
-    public SuccessDto deleteNotification(Integer notificationId) {
-        return null;
-    }
 }

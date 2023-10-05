@@ -1,15 +1,17 @@
 package com.example.marketplace.service;
 
-import com.example.marketplace.dto.SuccessDto;
-import com.example.marketplace.dto.entitiesDto.AccountDto;
-import com.example.marketplace.dto.entitiesDto.BankDataDto;
+import com.example.marketplace.dto.AccountDtos.AccountDto;
+import com.example.marketplace.dto.BankDataDtos.BankDataDto;
+import com.example.marketplace.dto.BankDataDtos.BankDataNewDto;
+import com.example.marketplace.dto.BankDataDtos.BankDataUpdateDto;
+import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 
 import java.util.List;
 
 public interface IBankDataService {
-    SuccessDto addBankData(BankDataDto bankDataDto);
+    SuccessDto addBankData(BankDataNewDto bankDataNewDto);
 
-    SuccessDto updateBankData(BankDataDto bankDataDto);
+    SuccessDto updateBankData(BankDataUpdateDto bankDataUpdateDto);
 
 
     BankDataDto getBankDataById(String bankDataId);

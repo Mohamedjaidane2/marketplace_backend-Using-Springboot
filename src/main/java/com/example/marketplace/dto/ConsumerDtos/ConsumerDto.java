@@ -1,5 +1,8 @@
 package com.example.marketplace.dto.ConsumerDtos;
 
+import com.example.marketplace.dto.AccountDtos.AccountDto;
+import com.example.marketplace.dto.FeedBackDtos.FeedBackDto;
+import com.example.marketplace.dto.HistoryDtos.HistoryDto;
 import com.example.marketplace.entity.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

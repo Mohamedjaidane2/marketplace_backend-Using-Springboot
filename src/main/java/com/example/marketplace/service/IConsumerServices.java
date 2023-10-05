@@ -1,9 +1,8 @@
 package com.example.marketplace.service;
 
-import com.example.marketplace.dto.SuccessDto;
-import com.example.marketplace.dto.entitiesDto.CategoryDto;
-import com.example.marketplace.dto.entitiesDto.ConsumerDto;
+import com.example.marketplace.dto.ConsumerDtos.ConsumerNewDto;
+import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 
 public interface IConsumerServices {
-    SuccessDto Register (ConsumerDto consumerDto);
+    SuccessDto Register (ConsumerNewDto consumerNewDto);
 }

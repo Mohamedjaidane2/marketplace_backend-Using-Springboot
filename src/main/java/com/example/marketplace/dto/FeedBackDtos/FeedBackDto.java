@@ -1,6 +1,7 @@
 package com.example.marketplace.dto.FeedBackDtos;
 
 import com.example.marketplace.Enum.EFeedBack;
+import com.example.marketplace.dto.ConsumerDtos.ConsumerDto;
 import com.example.marketplace.entity.Consumer;
 import com.example.marketplace.entity.FeedBack;
 import lombok.AllArgsConstructor;

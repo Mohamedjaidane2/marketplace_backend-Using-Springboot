@@ -1,5 +1,6 @@
 package com.example.marketplace.dto.TagsDtos;
 
+import com.example.marketplace.dto.SubCategoryDtos.SubCategoryDto;
 import com.example.marketplace.entity.SubCategory;
 import com.example.marketplace.entity.Tag;
 import lombok.AllArgsConstructor;

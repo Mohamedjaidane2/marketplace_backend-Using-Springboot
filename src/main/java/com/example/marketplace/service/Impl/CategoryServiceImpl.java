@@ -10,28 +10,4 @@ import java.util.List;
 
 @Service
 public class CategoryServiceImpl implements ICategoryServices {
-    @Override
-    public SuccessDto addCategory(CategoryDto categoryDto) {
-        return null;
-    }
-
-    @Override
-    public SuccessDto updateCategory(CategoryDto categoryDto) {
-        return null;
-    }
-
-    @Override
-    public CategoryDto getCategoryById(String categoryId) {
-        return null;
-    }
-
-    @Override
-    public List<CategoryDto> getAllCategory() {
-        return null;
-    }
-
-    @Override
-    public SuccessDto deleteCategoryById(String categoryId) {
-        return null;
-    }
 }

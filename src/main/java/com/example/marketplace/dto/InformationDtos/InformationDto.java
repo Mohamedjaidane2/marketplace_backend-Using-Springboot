@@ -1,15 +1,13 @@
 package com.example.marketplace.dto.InformationDtos;
 
 import com.example.marketplace.Enum.EComnsumerType;
-import com.example.marketplace.entity.Address;
-import com.example.marketplace.entity.History;
+import com.example.marketplace.dto.AddressDtos.AddressDto;
 import com.example.marketplace.entity.Information;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.util.List;
 
 @NoArgsConstructor
@@ -32,7 +30,7 @@ public class InformationDto {
 
     private List<AddressDto> addresses;
 
-    private EComnsumerType comnsumerType;
+    private EComnsumerType consumerType;
 
     @Override
     public String toString() {
@@ -44,7 +42,7 @@ public class InformationDto {
                 ", bio='" + bio + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", addresses=" + addresses +
-                ", comnsumerType=" + comnsumerType +
+                ", comnsumerType=" + consumerType +
                 '}';
     }
     public static InformationDto customMapping (Information information){
@@ -56,7 +54,7 @@ public class InformationDto {
                 .bio(information.getBio())
                 .phoneNumber(information.getPhoneNumber())
                 .addresses(AddressDto.customListMapping(information.getAddresses()))
-                .comnsumerType(information.getComnsumerType())
+                .consumerType(information.getComnsumerType())
                 .build();
     }
 }

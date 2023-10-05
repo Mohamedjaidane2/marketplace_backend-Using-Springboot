@@ -12,24 +12,4 @@ import java.util.List;
 @Service
 public class AccountServiceImpl implements IAccountService {
 
-    @Override
-    public SuccessDto deactivateAccount(AccountDto accountDto) {
-
-        return null;
-    }
-
-    @Override
-    public AccountDto getAccountByUser(User user) {
-        return null;
-    }
-
-    @Override
-    public AccountDto getAccountById(Integer id) {
-        return null;
-    }
-
-    @Override
-    public List<AccountDto> getAllAccounts() {
-        return null;
-    }
 }

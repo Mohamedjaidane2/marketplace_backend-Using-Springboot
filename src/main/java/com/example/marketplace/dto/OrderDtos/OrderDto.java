@@ -1,6 +1,8 @@
 package com.example.marketplace.dto.OrderDtos;
 
 import com.example.marketplace.Enum.EOrderStatus;
+import com.example.marketplace.dto.AccountDtos.AccountDto;
+import com.example.marketplace.dto.AdvertisementDtos.AdvertisementDto;
 import com.example.marketplace.entity.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

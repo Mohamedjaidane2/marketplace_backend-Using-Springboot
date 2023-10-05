@@ -1,15 +1,14 @@
 package com.example.marketplace.service;
 
-import com.example.marketplace.dto.SuccessDto;
-import com.example.marketplace.dto.entitiesDto.AccountDto;
-import com.example.marketplace.dto.entitiesDto.AdvertisementDto;
-import com.example.marketplace.dto.entitiesDto.HistoryDto;
-import com.example.marketplace.dto.entitiesDto.OrderDto;
+import com.example.marketplace.dto.AccountDtos.AccountDto;
+import com.example.marketplace.dto.OrderDtos.OrderDto;
+import com.example.marketplace.dto.OrderDtos.OrderNewDto;
+import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 
 import java.util.List;
 
 public interface IOrderServices {
-    SuccessDto toOrder(OrderDto orderDto);
+    SuccessDto toOrder(OrderNewDto orderNewDto);
 
     OrderDto getOrderById(String orderId);
 

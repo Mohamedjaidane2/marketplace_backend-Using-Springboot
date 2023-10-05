@@ -1,17 +1,18 @@
 package com.example.marketplace.service;
 
-import com.example.marketplace.dto.SuccessDto;
-import com.example.marketplace.dto.entitiesDto.AccountDto;
-import com.example.marketplace.dto.entitiesDto.BankDataDto;
-import com.example.marketplace.dto.entitiesDto.FeedBackDto;
+import com.example.marketplace.dto.AccountDtos.AccountDto;
+import com.example.marketplace.dto.FeedBackDtos.FeedBackDto;
+import com.example.marketplace.dto.FeedBackDtos.FeedBackNewDto;
+import com.example.marketplace.dto.FeedBackDtos.FeedBackUpdateDto;
+import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 
 import java.util.List;
 
 public interface IFeedBackServices {
 
-    SuccessDto addFeedBack(FeedBackDto feedBackDto);
+    SuccessDto addFeedBack(FeedBackNewDto feedBackNewDto);
 
-    SuccessDto updateFeedBack(FeedBackDto feedBackDto );
+    SuccessDto updateFeedBack(FeedBackUpdateDto feedBackUpdateDto );
 
 
     FeedBackDto getFeedBackById(String feedBackId);

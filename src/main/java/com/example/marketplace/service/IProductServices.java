@@ -1,17 +1,17 @@
 package com.example.marketplace.service;
 
-import com.example.marketplace.dto.SuccessDto;
-import com.example.marketplace.dto.entitiesDto.AccountDto;
-import com.example.marketplace.dto.entitiesDto.FeedBackDto;
-import com.example.marketplace.dto.entitiesDto.ProductDto;
+import com.example.marketplace.dto.ProductDtos.ProductDto;
+import com.example.marketplace.dto.ProductDtos.ProductNewDto;
+import com.example.marketplace.dto.ProductDtos.ProductUpdateDto;
+import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 
 import java.util.List;
 
 public interface IProductServices {
 
-    SuccessDto addProduct(ProductDto productDto);
+    SuccessDto addProduct(ProductNewDto productNewDto);
 
-    SuccessDto updateProduct(ProductDto productDto );
+    SuccessDto updateProduct(ProductUpdateDto productUpdateDto );
 
 
     ProductDto getProductById(String productId);

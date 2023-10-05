@@ -11,28 +11,4 @@ import java.util.List;
 
 @Service
 public class BrandServiceImpl implements IBrandServices {
-    @Override
-    public SuccessDto addBrand(BrandDto brandDto) {
-        return null;
-    }
-
-    @Override
-    public SuccessDto updateBrand(BrandDto brandDto) {
-        return null;
-    }
-
-    @Override
-    public BrandDto getBrandById(String brandId) {
-        return null;
-    }
-
-    @Override
-    public List<BrandDto> getAllBrand() {
-        return null;
-    }
-
-    @Override
-    public SuccessDto deleteBrandById(String brandId) {
-        return null;
-    }
 }

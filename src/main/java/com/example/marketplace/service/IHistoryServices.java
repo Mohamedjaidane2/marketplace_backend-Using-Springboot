@@ -1,8 +1,8 @@
 package com.example.marketplace.service;
 
-import com.example.marketplace.dto.SuccessDto;
-import com.example.marketplace.dto.entitiesDto.AccountDto;
-import com.example.marketplace.dto.entitiesDto.HistoryDto;
+import com.example.marketplace.dto.AccountDtos.AccountDto;
+import com.example.marketplace.dto.HistoryDtos.HistoryDto;
+import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 
 
 public interface IHistoryServices {
