@@ -19,4 +19,7 @@ public interface IProductServices {
     List<ProductDto> getAllProduct();
 
     SuccessDto deleteProductById(String productId);
+
+
+
 }

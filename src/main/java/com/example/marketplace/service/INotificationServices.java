@@ -12,6 +12,7 @@ public interface INotificationServices {
     NotificationDto getNotificationById(Integer notificationId) ;
 
     List<NotificationDto> getNotificationsByUserId(Integer userId);
+
     SuccessDto markNotificationAsRead(Integer notificationId);
 
     SuccessDto deleteNotification(Integer notificationId);
