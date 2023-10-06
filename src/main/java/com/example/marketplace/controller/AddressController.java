@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Api("/address")
+@RequestMapping("/api/address")
 @RestController
 @RequiredArgsConstructor
 public class AddressController {

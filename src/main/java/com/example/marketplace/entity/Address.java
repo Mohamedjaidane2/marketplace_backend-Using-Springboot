@@ -27,7 +27,7 @@ public class Address{
     private int postalCode;
 
     @ManyToOne
-    @JoinColumn(name = "information_id",nullable = false)
+    @JoinColumn(name = "information_id",nullable = true)
     private Information information;
 
 }
