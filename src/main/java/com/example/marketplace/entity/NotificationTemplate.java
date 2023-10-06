@@ -21,6 +21,7 @@ public class NotificationTemplate {
     private String type;
     private String subjectTemplate;
     private String bodyTemplate;
+
     @OneToMany(mappedBy="template")
     private List<Notification> notifications;
 

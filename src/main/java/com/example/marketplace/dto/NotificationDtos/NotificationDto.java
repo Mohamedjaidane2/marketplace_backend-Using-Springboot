@@ -48,8 +48,8 @@ public class NotificationDto {
         return NotificationDto.builder()
                 .notificationId(notification.getNotificationId())
                 .content(notification.getContent())
-                .read(notification.isRead())
-                .user(notification.getUser())
+                .read(notification.getRead())
+                .user(notification.getApp_user())
                 .template(NotificationTemplateDto.customMapping(notification.getTemplate()))
                 .build();
     }
