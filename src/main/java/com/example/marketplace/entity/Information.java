@@ -17,7 +17,7 @@ import java.util.List;
 @Table(name = "information")
 public class Information {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer information_id;
 
     private String profilePicture;

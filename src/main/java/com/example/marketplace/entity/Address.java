@@ -14,6 +14,7 @@ import javax.persistence.*;
 @Builder
 @Table(name = "address")
 public class Address{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int AddressId;
