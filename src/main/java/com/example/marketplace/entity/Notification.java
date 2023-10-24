@@ -20,16 +20,15 @@ public class Notification {
 
     private String content;
 
-    private boolean read;
+    @Column(name = "is_read")
+    private Boolean read;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private User app_user;
 
     @ManyToOne
     @JoinColumn(name = "notificationTemplate_id", nullable = false)
     private NotificationTemplate template;
-
-
 
 }

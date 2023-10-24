@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "notificationTemplate")
+@Table(name = "notification_Template")
 public class NotificationTemplate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +21,7 @@ public class NotificationTemplate {
     private String type;
     private String subjectTemplate;
     private String bodyTemplate;
+
     @OneToMany(mappedBy="template")
     private List<Notification> notifications;
 

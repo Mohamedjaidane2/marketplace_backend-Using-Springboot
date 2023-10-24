@@ -21,10 +21,6 @@ public class RequestOrder {
     private int requestOrderId;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "account_id")
-    private Account account;
-
-    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "advertisement_id")
     private Advertisement advertisement;
 

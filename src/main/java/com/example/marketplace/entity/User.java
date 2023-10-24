@@ -35,8 +35,7 @@ public class User {
     @Column(name = "creation_date", updatable = false)
     private Date creationDate;
 
-
-    @OneToMany(mappedBy="user")
+    @OneToMany(mappedBy="app_user")
     private List<Notification> notifications;
 
 

@@ -17,14 +17,14 @@ import java.util.List;
 @Table(name = "information")
 public class Information {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer information_id;
 
     private String profilePicture;
 
-    private String FirstName;
+    private String firstName;
 
-    private String LastName;
+    private String lastName;
 
     private String bio;
 
@@ -32,7 +32,6 @@ public class Information {
 
     @OneToMany(mappedBy="information")
     private List<Address> addresses;
-
 
     @Enumerated(EnumType.STRING)
     @Column(name = "advertisement_status")

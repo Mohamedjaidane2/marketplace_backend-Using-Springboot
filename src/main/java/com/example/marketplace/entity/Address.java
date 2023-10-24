@@ -14,6 +14,7 @@ import javax.persistence.*;
 @Builder
 @Table(name = "address")
 public class Address{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int AddressId;
@@ -27,7 +28,7 @@ public class Address{
     private int postalCode;
 
     @ManyToOne
-    @JoinColumn(name = "information_id",nullable = false)
+    @JoinColumn(name = "information_id",nullable = true)
     private Information information;
 
 }
