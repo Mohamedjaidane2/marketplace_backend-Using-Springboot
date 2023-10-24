@@ -4,7 +4,9 @@ import com.example.marketplace.dto.AccountDtos.AccountDto;
 import com.example.marketplace.dto.HistoryDtos.HistoryDto;
 import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 import com.example.marketplace.service.IHistoryServices;
+import org.springframework.stereotype.Service;
 
+@Service
 public class HistoryServiceImpl implements IHistoryServices {
     @Override
     public SuccessDto addHistory(HistoryDto historyDto) {

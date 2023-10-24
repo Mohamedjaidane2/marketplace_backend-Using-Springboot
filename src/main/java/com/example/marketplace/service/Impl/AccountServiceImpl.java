@@ -17,6 +17,11 @@ public class AccountServiceImpl implements IAccountService {
     }
 
     @Override
+    public SuccessDto ReactivateAccount(AccountDto accountDto) {
+        return null;
+    }
+
+    @Override
     public AccountDto getAccountByUser(User user) {
         return null;
     }

@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface IAccountService {
     SuccessDto deactivateAccount(AccountDto accountDto);
+    SuccessDto ReactivateAccount(AccountDto accountDto);
 
     AccountDto getAccountByUser(User user);
 
