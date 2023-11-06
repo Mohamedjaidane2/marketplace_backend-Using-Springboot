@@ -34,6 +34,7 @@ public class InformationServiceImpl implements IInformationServices {
     @Override
     public SuccessDto addInformation(InformationNewDto informationNewDto) {
 
+        Optional<Account> account = iAccountRepository.findById(informationNewDto.getAccount());
         Information information= Information.builder()
                 .bio(informationNewDto.getBio())
                 .firstName(informationNewDto.getFirstName())
@@ -41,6 +42,7 @@ public class InformationServiceImpl implements IInformationServices {
                 .comnsumerType(informationNewDto.getConsumerType())
                 .phoneNumber(informationNewDto.getPhoneNumber())
                 .profilePicture(informationNewDto.getProfilePicture())
+                .account(account.get())
                 .build();
         iInformationRepository.save(information);
         return SuccessDto.builder()

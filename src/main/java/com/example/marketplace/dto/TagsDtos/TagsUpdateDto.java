@@ -16,7 +16,7 @@ public class TagsUpdateDto {
 
     private String tagName;
 
-    private SubCategoryDto subcategory;
+    private String subcategory;
 
     private Date creationDate;
 }

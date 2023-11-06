@@ -24,12 +24,10 @@ public class Account {
     @Column(name = "creation_date", updatable = false)
     private Date creationDate;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "wallet_id")
+    @OneToOne(mappedBy = "account",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Wallet wallet;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "information_id")
+    @OneToOne(mappedBy = "account",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Information information;
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)

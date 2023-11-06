@@ -27,7 +27,6 @@ public class AddressDto {
 
     private String city;
 
-
     private int postalCode;
 
 
