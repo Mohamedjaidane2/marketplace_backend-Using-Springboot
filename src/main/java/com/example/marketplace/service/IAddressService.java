@@ -11,15 +11,13 @@ import java.util.List;
 public interface IAddressService {
     SuccessDto addAddress(AddressNewDto addressNewDto);
 
-    SuccessDto updateAddress(AddressUpdateDtos addressUpdateDto);
+    SuccessDto updateAddress(AddressUpdateDtos addressUpdateDto,Integer addressId);
 
 
-    AddressDto getAddressById(String addressId);
-
-    AddressDto getAddressByAccount(AccountDto accountDto);
+    AddressDto getAddressById(Integer addressId );
 
     List<AddressDto> getAllAddress();
 
-    SuccessDto deleteAddressById(String addressId);
+    SuccessDto deleteAddressById(Integer addressId);
 
 }

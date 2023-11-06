@@ -8,6 +8,7 @@ import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 import com.example.marketplace.service.IAddressService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.auth.In;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,21 +30,14 @@ public class AddressController {
 
     @PutMapping("/update")
     @ApiOperation(value = "Update address")
-    public ResponseEntity<SuccessDto> updateAddress(@RequestBody AddressUpdateDtos addressUpdateDto) {
-        return ResponseEntity.ok(iAddressService.updateAddress(addressUpdateDto));
+    public ResponseEntity<SuccessDto> updateAddress(@RequestBody AddressUpdateDtos addressUpdateDto,Integer id) {
+        return ResponseEntity.ok(iAddressService.updateAddress(addressUpdateDto,id));
     }
 
     @GetMapping("/{addressId}")
     @ApiOperation(value = "Get address by ID")
-    public ResponseEntity<AddressDto> getAddressById(@PathVariable String addressId) {
+    public ResponseEntity<AddressDto> getAddressById(@PathVariable Integer addressId) {
         AddressDto addressDto = iAddressService.getAddressById(addressId);
-        return ResponseEntity.ok(addressDto);
-    }
-
-    @GetMapping("/account")
-    @ApiOperation(value = "Get address by account")
-    public ResponseEntity<AddressDto> getAddressByAccount(@RequestBody AccountDto accountDto) {
-        AddressDto addressDto = iAddressService.getAddressByAccount(accountDto);
         return ResponseEntity.ok(addressDto);
     }
 
@@ -56,7 +50,7 @@ public class AddressController {
 
     @DeleteMapping("/delete/{addressId}")
     @ApiOperation(value = "Delete address by ID")
-    public ResponseEntity<SuccessDto> deleteAddressById(@PathVariable String addressId) {
+    public ResponseEntity<SuccessDto> deleteAddressById(@PathVariable Integer addressId) {
         return ResponseEntity.ok(iAddressService.deleteAddressById(addressId));
     }
 }
