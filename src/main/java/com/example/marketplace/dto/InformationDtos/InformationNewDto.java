@@ -2,6 +2,7 @@ package com.example.marketplace.dto.InformationDtos;
 
 import com.example.marketplace.Enum.EComnsumerType;
 import com.example.marketplace.dto.AddressDtos.AddressDto;
+import com.example.marketplace.entity.Address;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
