@@ -27,7 +27,7 @@ public class InformationDto {
 
     private String phoneNumber;
 
-
+    private Integer accountId;
     private List<AddressDto> addresses;
 
     private EComnsumerType consumerType;
@@ -54,6 +54,7 @@ public class InformationDto {
                 .bio(information.getBio())
                 .phoneNumber(information.getPhoneNumber())
                 .consumerType(information.getComnsumerType())
+                .accountId(information.getInformation_id())
                 .addresses(AddressDto.customListMapping(information.getAddresses()))
                 .build();
         return informationDto;

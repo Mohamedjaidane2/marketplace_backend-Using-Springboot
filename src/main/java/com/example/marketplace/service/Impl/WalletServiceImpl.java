@@ -5,7 +5,10 @@ import com.example.marketplace.dto.WalletDtos.WalletDto;
 import com.example.marketplace.service.IWalletServices;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
+@Transactional
 public class WalletServiceImpl implements IWalletServices {
     @Override
     public SuccessDto createWallet(String userId) {

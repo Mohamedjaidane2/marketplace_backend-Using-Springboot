@@ -19,12 +19,14 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
+@Transactional
 public class AddressServiceImpl implements IAddressService {
     private final IAddressRepository iAddressRepository;
     private final IInformationRepository iInformationRepository;

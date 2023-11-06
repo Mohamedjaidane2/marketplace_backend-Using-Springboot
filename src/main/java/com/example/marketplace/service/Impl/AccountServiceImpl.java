@@ -6,9 +6,11 @@ import com.example.marketplace.entity.User;
 import com.example.marketplace.service.IAccountService;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class AccountServiceImpl implements IAccountService {
 
     @Override

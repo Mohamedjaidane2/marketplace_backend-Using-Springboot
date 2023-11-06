@@ -39,14 +39,12 @@ public class Information {
     @Column(name = "advertisement_status")
     private EComnsumerType comnsumerType;
 
-<<<<<<< HEAD
-=======
+
     @OneToOne(fetch = FetchType.LAZY)
     @MapsId
     @JoinColumn(name = "account_id")
     private Account account;
 
->>>>>>> feature/Information_Service
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "creation_date", updatable = false)
