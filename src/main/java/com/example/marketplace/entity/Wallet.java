@@ -20,7 +20,8 @@ public class Wallet {
 
     private Float balance;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
     @JoinColumn(name = "account_id")
     private Account account;
 

@@ -27,6 +27,7 @@ public class InformationDto {
 
     private String phoneNumber;
 
+
     private List<AddressDto> addresses;
 
     private EComnsumerType consumerType;

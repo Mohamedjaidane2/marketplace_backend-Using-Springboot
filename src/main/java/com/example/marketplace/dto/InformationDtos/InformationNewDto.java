@@ -27,4 +27,6 @@ public class InformationNewDto {
     private String phoneNumber;
 
     private EComnsumerType consumerType;
+
+    private Integer account;
 }
