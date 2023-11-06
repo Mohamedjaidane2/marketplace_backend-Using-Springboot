@@ -23,9 +23,9 @@ public class SwaggerConfig {
     public static final String AUTHORIZATION_HEADER = "Authorization";
 
     @Bean
-    public Docket docket() {
+    public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("MarketPlace APIs")
+                .groupName("MarketPlace_API")
                 .securityContexts(Collections.singletonList(securityContext()))
                 .securitySchemes(Collections.singletonList(apiKey()))
                 .useDefaultResponseMessages(false)
@@ -34,7 +34,6 @@ public class SwaggerConfig {
                 .apis(RequestHandlerSelectors.basePackage("com.example.marketplace.controller"))
                 .paths(PathSelectors.any())
                 .build();
-
     }
     private ApiInfo apiInfo(){
         return new ApiInfoBuilder()

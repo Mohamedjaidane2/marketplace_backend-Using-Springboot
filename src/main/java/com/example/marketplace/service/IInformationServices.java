@@ -11,14 +11,12 @@ import java.util.List;
 public interface IInformationServices {
     SuccessDto addInformation(InformationNewDto informationNewDto);
 
-    SuccessDto updateInformation(InformationUpdateDto informationUpdateDto);
+    SuccessDto updateInformation(InformationUpdateDto informationUpdateDto ,Integer infoId);
 
 
-    InformationDto getInformationById(String informationId);
-
-    InformationDto getInformationByAccount(AccountDto accountDto);
+    InformationDto getInformationById(Integer informationId);
 
     List<InformationDto> getAllInformation();
 
-    SuccessDto deleteInformationById(String informationId);
+    SuccessDto deleteInformationById(Integer informationId);
 }

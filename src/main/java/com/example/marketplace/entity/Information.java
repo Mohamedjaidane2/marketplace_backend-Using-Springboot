@@ -30,7 +30,7 @@ public class Information {
 
     private String phoneNumber;
 
-    @OneToMany(mappedBy="information")
+    @OneToMany(mappedBy="information",fetch = FetchType.EAGER)
     private List<Address> addresses;
 
     @Enumerated(EnumType.STRING)

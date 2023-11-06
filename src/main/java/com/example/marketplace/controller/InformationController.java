@@ -27,23 +27,16 @@ public class InformationController {
         return ResponseEntity.ok(informationService.addInformation(informationNewDto));
     }
 
-    @PutMapping("/update")
+    @PatchMapping("/update")
     @ApiOperation(value = "Update information")
-    public ResponseEntity<SuccessDto> updateInformation(@RequestBody InformationUpdateDto informationUpdateDto) {
-        return ResponseEntity.ok(informationService.updateInformation(informationUpdateDto));
+    public ResponseEntity<SuccessDto> updateInformation(@RequestBody InformationUpdateDto informationUpdateDto,Integer infoId) {
+        return ResponseEntity.ok(informationService.updateInformation(informationUpdateDto,infoId));
     }
 
     @GetMapping("/{informationId}")
     @ApiOperation(value = "Get information by ID")
-    public ResponseEntity<InformationDto> getInformationById(@PathVariable String informationId) {
+    public ResponseEntity<InformationDto> getInformationById(@PathVariable Integer informationId) {
         InformationDto information = informationService.getInformationById(informationId);
-        return ResponseEntity.ok(information);
-    }
-
-    @GetMapping("/account")
-    @ApiOperation(value = "Get information by account")
-    public ResponseEntity<InformationDto> getInformationByAccount(@RequestBody AccountDto accountDto) {
-        InformationDto information = informationService.getInformationByAccount(accountDto);
         return ResponseEntity.ok(information);
     }
 
@@ -56,7 +49,7 @@ public class InformationController {
 
     @DeleteMapping("/delete/{informationId}")
     @ApiOperation(value = "Delete information by ID")
-    public ResponseEntity<SuccessDto> deleteInformationById(@PathVariable String informationId) {
+    public ResponseEntity<SuccessDto> deleteInformationById(@PathVariable Integer informationId) {
         return ResponseEntity.ok(informationService.deleteInformationById(informationId));
     }
 }
