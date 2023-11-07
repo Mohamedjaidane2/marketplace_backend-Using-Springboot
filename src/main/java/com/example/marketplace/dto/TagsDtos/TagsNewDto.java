@@ -16,7 +16,5 @@ public class TagsNewDto {
 
     private String tagName;
 
-    private SubCategoryDto subcategory;
-
-    private Date creationDate;
+    private Integer subcategoryId;
 }

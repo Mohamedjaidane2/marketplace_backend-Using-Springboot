@@ -19,7 +19,7 @@ public class SubCategoryNewDto {
 
     private String subCategoryName;
 
-    private CategoryDto category;
+    private Integer categoryId;
 
     private List<BrandDto> brands;
 

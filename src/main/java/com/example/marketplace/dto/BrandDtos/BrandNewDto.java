@@ -16,7 +16,5 @@ public class BrandNewDto {
 
     private String brandName;
 
-    private SubCategoryDto subcategory;
-
-    private Date creationDate;
+    private Integer subcategoryId;
 }

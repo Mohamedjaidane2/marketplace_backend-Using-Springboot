@@ -11,11 +11,11 @@ public interface ISubCategoryServices {
 
     SuccessDto createSubCategory(SubCategoryNewDto subCategoryNewDto);
 
-    SuccessDto updateSubCategory(SubCategoryUpdateDto subCategoryUpdateDto);
+    SuccessDto updateSubCategory(SubCategoryUpdateDto subCategoryUpdateDto,Integer subCategoryId);
 
     List<SubCategoryDto> getAllSubCategories();
 
-    SubCategoryDto getSubCategoryById(String subCategoryId);
+    SubCategoryDto getSubCategoryById(Integer subCategoryId);
 
-    SuccessDto deleteSubCategoryById(String subCategoryId);
+    SuccessDto deleteSubCategoryById(Integer subCategoryId);
 }
