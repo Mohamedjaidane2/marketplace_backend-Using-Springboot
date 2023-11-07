@@ -35,7 +35,6 @@ public class SubCategoryServiceImpl implements ISubCategoryServices {
         Optional<Category> category = categoryRepository.findById(subCategoryNewDto.getCategoryId());
         SubCategory subCategory = SubCategory.builder()
                 .subCategoryName(subCategoryNewDto.getSubCategoryName())
-                .tags(subCategoryNewDto.getTags())
                 .category(category.get())
                 .build();
 

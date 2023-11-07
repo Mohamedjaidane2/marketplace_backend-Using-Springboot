@@ -20,10 +20,4 @@ public class SubCategoryNewDto {
     private String subCategoryName;
 
     private Integer categoryId;
-
-    private List<BrandDto> brands;
-
-    private List<Tag> tags;
-
-    private Date creationDate;
 }

@@ -7,28 +7,34 @@ import com.example.marketplace.dto.ProductDtos.ProductUpdateDto;
 import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 import com.example.marketplace.entity.Information;
 import com.example.marketplace.entity.Product;
+import com.example.marketplace.entity.SubCategory;
 import com.example.marketplace.exception.EntityNotFoundException;
 import com.example.marketplace.exception.ErrorCodes;
 import com.example.marketplace.repository.IProductRepository;
+import com.example.marketplace.repository.ISubCategoryRepository;
 import com.example.marketplace.service.IProductServices;
 import com.example.marketplace.utils.SuccessMessage;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class ProductServiceImpl implements IProductServices {
     private final IProductRepository iProductRepository;
+    private final ISubCategoryRepository subCategoryRepository;
     private final ModelMapper modelMapper;
     @Override
     public SuccessDto addProduct(ProductNewDto productNewDto) {
+        Optional<SubCategory> subCategory = subCategoryRepository.findById(productNewDto.getSubcategoryId());
         Product product=Product.builder()
-                .category(productNewDto.getCategory())
+                .subCategory(subCategory.get())
                 .images(productNewDto.getImages())
                 .ProductStatus(productNewDto.getProductStatus())
                 .color(productNewDto.getColor())

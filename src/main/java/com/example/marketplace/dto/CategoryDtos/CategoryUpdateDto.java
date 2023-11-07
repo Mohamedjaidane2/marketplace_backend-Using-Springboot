@@ -16,8 +16,4 @@ import java.util.List;
 public class CategoryUpdateDto {
 
     private String categoryName;
-
-    private List<SubCategoryDto> subCategories;
-
-    private Date creationDate;
 }
