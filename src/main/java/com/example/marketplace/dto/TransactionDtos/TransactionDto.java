@@ -25,9 +25,17 @@ public class TransactionDto {
 
     private Date transaction_date;
 
-    private WalletDto wallet;
+    private String action ;
 
-    private Float amount;
+    private Integer walletId;
+
+    private double amount;
+
+    private double balance;
+
+    private double current_balance;
+
+    private boolean is_canceled;
 
     public static List<TransactionDto> customListMapping(List<Transaction> transactions) {
         if(transactions==null) return null;
@@ -44,7 +52,6 @@ public class TransactionDto {
         return "TransactionDto{" +
                 "transaction_id=" + transaction_id +
                 ", transaction_date=" + transaction_date +
-                ", wallet=" + wallet +
                 ", amount=" + amount +
                 '}';
     }
@@ -53,8 +60,12 @@ public class TransactionDto {
         return TransactionDto.builder()
                 .transaction_id(transaction.getTransaction_id())
                 .transaction_date(transaction.getTransaction_date())
-                .wallet(WalletDto.customMapping(transaction.getWallet()))
+                .action(transaction.getAction())
+                .walletId(transaction.getWallet().getWallet_id())
                 .amount(transaction.getAmount())
+                .balance(transaction.getBalance())
+                .current_balance(transaction.getCurrent_balance())
+                .is_canceled(transaction.is_canceled())
                 .build();
     }
 }

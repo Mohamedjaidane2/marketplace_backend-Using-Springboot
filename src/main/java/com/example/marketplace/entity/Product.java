@@ -28,6 +28,7 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
 
+
     @ElementCollection
     private List<String> images;
 

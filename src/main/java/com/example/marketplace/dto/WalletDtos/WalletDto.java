@@ -22,9 +22,9 @@ public class WalletDto {
 
     private Integer wallet_id;
 
-    private Float balance;
+    private double balance;
 
-    private AccountDto account;
+    private Integer accountId;
 
     private List<TransactionDto> transactions;
 
@@ -33,7 +33,6 @@ public class WalletDto {
         return "WalletDto{" +
                 "wallet_id=" + wallet_id +
                 ", balance=" + balance +
-                ", account=" + account +
                 ", transactions=" + transactions +
                 '}';
     }
@@ -42,7 +41,7 @@ public class WalletDto {
         return WalletDto.builder()
                 .wallet_id(wallet.getWallet_id())
                 .balance(wallet.getBalance())
-                .account(AccountDto.customMapping(wallet.getAccount()))
+                .accountId(wallet.getAccount().getAccountId())
                 .transactions(TransactionDto.customListMapping(wallet.getTransactions()))
                 .build();
     }

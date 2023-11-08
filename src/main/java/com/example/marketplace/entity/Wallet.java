@@ -15,13 +15,12 @@ import java.util.List;
 @Table(name = "wallet")
 public class Wallet {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer wallet_id;
 
-    private Float balance;
+    private double balance;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
     @JoinColumn(name = "account_id")
     private Account account;
 

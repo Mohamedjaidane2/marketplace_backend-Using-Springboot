@@ -67,7 +67,7 @@ public class InformationServiceImpl implements IInformationServices {
 
     @Override
     public InformationDto getInformationById(Integer informationId) {
-        Optional<Information> information = iInformationRepository.findInformationWithAddressesById(informationId);
+        Optional<Information> information = iInformationRepository.findById(informationId);
         if (information.isEmpty()) {
             throw new EntityNotFoundException("Information not found", ErrorCodes.INFORMATION_NOT_FOUND);
         }

@@ -2,16 +2,16 @@ package com.example.marketplace.service;
 
 import com.example.marketplace.dto.WalletDtos.WalletDto;
 import com.example.marketplace.dto.SuccessDtos.SuccessDto;
+import com.example.marketplace.dto.WalletDtos.WalletNewDto;
 
 public interface IWalletServices {
 
-    SuccessDto createWallet(String userId);
+    SuccessDto createWallet(WalletNewDto walletNewDto);
 
-    WalletDto getWalletBalance(String userId);
+    double getWalletBalance(Integer walletId);
+    WalletDto getWalletById(Integer walletId);
 
-    SuccessDto addFundsToWallet(String userId, double amount);
+    SuccessDto addFundsToWallet(Integer walletId, double amount);
 
-    SuccessDto makePayment(String userId, double amount);
-
-    SuccessDto withdrawFunds(String userId, double amount);
+    SuccessDto withdrawFunds(Integer  walletId, double amount);
 }

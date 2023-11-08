@@ -29,7 +29,14 @@ public class Transaction {
     @JoinColumn(name = "wallet_id", nullable = false)
     private Wallet wallet;
 
-    private Float amount;
+    private double amount;
 
+    private String action ;
+
+    private boolean is_canceled;
+
+    private double balance;
+
+    private double current_balance;
 
 }
