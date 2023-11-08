@@ -20,11 +20,13 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class InformationServiceImpl implements IInformationServices {
 
@@ -34,6 +36,7 @@ public class InformationServiceImpl implements IInformationServices {
     @Override
     public SuccessDto addInformation(InformationNewDto informationNewDto) {
 
+        Optional<Account> account = iAccountRepository.findById(informationNewDto.getAccount());
         Information information= Information.builder()
                 .bio(informationNewDto.getBio())
                 .firstName(informationNewDto.getFirstName())
@@ -41,6 +44,7 @@ public class InformationServiceImpl implements IInformationServices {
                 .comnsumerType(informationNewDto.getConsumerType())
                 .phoneNumber(informationNewDto.getPhoneNumber())
                 .profilePicture(informationNewDto.getProfilePicture())
+                .account(account.get())
                 .build();
         iInformationRepository.save(information);
         return SuccessDto.builder()
@@ -63,7 +67,7 @@ public class InformationServiceImpl implements IInformationServices {
 
     @Override
     public InformationDto getInformationById(Integer informationId) {
-        Optional<Information> information = iInformationRepository.findById(informationId);
+        Optional<Information> information = iInformationRepository.findInformationWithAddressesById(informationId);
         if (information.isEmpty()) {
             throw new EntityNotFoundException("Information not found", ErrorCodes.INFORMATION_NOT_FOUND);
         }

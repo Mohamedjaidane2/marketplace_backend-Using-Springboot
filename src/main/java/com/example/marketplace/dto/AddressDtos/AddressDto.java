@@ -27,10 +27,8 @@ public class AddressDto {
 
     private String city;
 
-
     private int postalCode;
 
-    private InformationDto information;
 
     public static List<AddressDto> customListMapping(List<Address> addresses) {
         if(addresses==null) return null;
@@ -50,7 +48,6 @@ public class AddressDto {
                 ", additionalAddress='" + additionalAddress + '\'' +
                 ", city='" + city + '\'' +
                 ", postalCode=" + postalCode +
-                ", information=" + information +
                 '}';
     }
     public static AddressDto customMapping(Address address){
@@ -58,7 +55,6 @@ public class AddressDto {
                 .AddressId(address.getAddressId())
                 .additionalAddress(address.getAdditionalAddress())
                 .addressName(address.getAddressName())
-                .information(InformationDto.customMapping(address.getInformation()))
                 .city(address.getCity())
                 .postalCode(address.getPostalCode())
                 .build();

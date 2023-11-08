@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -18,5 +20,7 @@ public class AddressNewDto {
     private String city;
 
     private int postalCode;
+
+    private Integer information_id;
 
 }

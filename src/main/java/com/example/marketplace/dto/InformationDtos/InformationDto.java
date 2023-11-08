@@ -3,10 +3,9 @@ package com.example.marketplace.dto.InformationDtos;
 import com.example.marketplace.Enum.EComnsumerType;
 import com.example.marketplace.dto.AddressDtos.AddressDto;
 import com.example.marketplace.entity.Information;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.example.marketplace.repository.IAddressRepository;
+import com.example.marketplace.repository.IInformationRepository;
+import lombok.*;
 
 import java.util.List;
 
@@ -28,6 +27,7 @@ public class InformationDto {
 
     private String phoneNumber;
 
+    private Integer accountId;
     private List<AddressDto> addresses;
 
     private EComnsumerType consumerType;
@@ -45,16 +45,18 @@ public class InformationDto {
                 ", comnsumerType=" + consumerType +
                 '}';
     }
-    public static InformationDto customMapping (Information information){
-        return InformationDto.builder()
+    public static InformationDto customMapping(Information information) {
+        InformationDto informationDto = InformationDto.builder()
                 .information_id(information.getInformation_id())
                 .profilePicture(information.getProfilePicture())
                 .firstName(information.getFirstName())
                 .lastName(information.getLastName())
                 .bio(information.getBio())
                 .phoneNumber(information.getPhoneNumber())
-                .addresses(AddressDto.customListMapping(information.getAddresses()))
                 .consumerType(information.getComnsumerType())
+                .accountId(information.getInformation_id())
+                .addresses(AddressDto.customListMapping(information.getAddresses()))
                 .build();
+        return informationDto;
     }
 }
