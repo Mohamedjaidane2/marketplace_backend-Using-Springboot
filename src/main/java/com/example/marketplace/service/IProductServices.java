@@ -11,14 +11,14 @@ public interface IProductServices {
 
     SuccessDto addProduct(ProductNewDto productNewDto);
 
-    SuccessDto updateProduct(ProductUpdateDto productUpdateDto );
+    SuccessDto updateProduct(ProductUpdateDto productUpdateDto ,Integer productId);
 
 
-    ProductDto getProductById(String productId);
+    ProductDto getProductById(Integer productId);
 
     List<ProductDto> getAllProduct();
 
-    SuccessDto deleteProductById(String productId);
+    SuccessDto deleteProductById(Integer productId);
 
 
 

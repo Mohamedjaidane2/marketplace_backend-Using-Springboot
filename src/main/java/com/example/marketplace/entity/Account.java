@@ -16,7 +16,7 @@ import java.util.List;
 @Table(name = "account")
 public class Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer accountId;
 
     @CreationTimestamp

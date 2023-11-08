@@ -28,13 +28,13 @@ public class BrandController {
 
     @PutMapping("/update")
     @ApiOperation(value = "Update brand")
-    public ResponseEntity<SuccessDto> updateBrand(@RequestBody BrandUpdateDto brandUpdateDto) {
-        return ResponseEntity.ok(brandService.updateBrand(brandUpdateDto));
+    public ResponseEntity<SuccessDto> updateBrand(@RequestBody BrandUpdateDto brandUpdateDto,Integer brandId) {
+        return ResponseEntity.ok(brandService.updateBrand(brandUpdateDto,brandId));
     }
 
     @GetMapping("/{brandId}")
     @ApiOperation(value = "Get brand by ID")
-    public ResponseEntity<BrandDto> getBrandById(@PathVariable String brandId) {
+    public ResponseEntity<BrandDto> getBrandById(@PathVariable Integer brandId) {
         BrandDto brandDto = brandService.getBrandById(brandId);
         return ResponseEntity.ok(brandDto);
     }
@@ -48,7 +48,7 @@ public class BrandController {
 
     @DeleteMapping("/delete/{brandId}")
     @ApiOperation(value = "Delete brand by ID")
-    public ResponseEntity<SuccessDto> deleteBrandById(@PathVariable String brandId) {
+    public ResponseEntity<SuccessDto> deleteBrandById(@PathVariable Integer brandId) {
         return ResponseEntity.ok(brandService.deleteBrandById(brandId));
     }
 }

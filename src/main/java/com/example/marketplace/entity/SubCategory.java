@@ -29,10 +29,10 @@ public class SubCategory {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @OneToMany(mappedBy = "subcategory", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "subcategory",fetch = FetchType.LAZY)
     private List<Brand> brands;
 
-    @OneToMany(mappedBy = "subcategory", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "subcategory",fetch = FetchType.LAZY)
     private List<Tag> tags;
 
     @CreationTimestamp

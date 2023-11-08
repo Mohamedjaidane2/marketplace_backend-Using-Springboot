@@ -10,13 +10,13 @@ import java.util.List;
 public interface IBrandServices {
     SuccessDto addBrand(BrandNewDto brandNewDto);
 
-    SuccessDto updateBrand(BrandUpdateDto brandUpdateDto);
+    SuccessDto updateBrand(BrandUpdateDto brandUpdateDto,Integer brandId);
 
 
-    BrandDto getBrandById(String brandId);
+    BrandDto getBrandById(Integer brandId);
 
 
     List<BrandDto> getAllBrand();
 
-    SuccessDto deleteBrandById(String brandId);
+    SuccessDto deleteBrandById(Integer brandId);
 }

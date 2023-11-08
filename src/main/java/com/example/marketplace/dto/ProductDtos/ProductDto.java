@@ -3,9 +3,11 @@ package com.example.marketplace.dto.ProductDtos;
 import com.example.marketplace.Enum.EColor;
 import com.example.marketplace.Enum.EGender;
 import com.example.marketplace.Enum.EProductStatus;
+import com.example.marketplace.dto.SubCategoryDtos.SubCategoryDto;
 import com.example.marketplace.entity.Category;
 import com.example.marketplace.entity.Order;
 import com.example.marketplace.entity.Product;
+import com.example.marketplace.entity.SubCategory;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,9 +24,10 @@ public class ProductDto {
 
     private int id;
 
-    private Category category;
 
-    private List<String> images;
+    private SubCategoryDto subCategory;
+
+//    private List<String> images;
 
     private EProductStatus ProductStatus;
 
@@ -40,8 +43,8 @@ public class ProductDto {
     public String toString() {
         return "ProductDto{" +
                 "id=" + id +
-                ", category=" + category +
-                ", images=" + images +
+                ", subCategory=" + subCategory +
+//                ", images=" + images +
                 ", ProductStatus=" + ProductStatus +
                 ", color=" + color +
                 ", features='" + features + '\'' +
@@ -52,8 +55,8 @@ public class ProductDto {
     public static ProductDto customMapping (Product product){
         return ProductDto.builder()
                 .id(product.getId())
-                .category(product.getCategory())
-                .images(product.getImages())
+                .subCategory(SubCategoryDto.customMapping(product.getSubCategory()))
+//                .images(product.getImages())
                 .ProductStatus(product.getProductStatus())
                 .color(product.getColor())
                 .features(product.getFeatures())

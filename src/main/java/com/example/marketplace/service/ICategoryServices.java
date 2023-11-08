@@ -10,12 +10,12 @@ import java.util.List;
 public interface ICategoryServices {
     SuccessDto addCategory(CategoryNewDto categoryNewDto);
 
-    SuccessDto updateCategory(CategoryUpdateDto categoryUpdateDto);
+    SuccessDto updateCategory(CategoryUpdateDto categoryUpdateDto,Integer categoryId);
 
 
-    CategoryDto getCategoryById(String categoryId);
+    CategoryDto getCategoryById(Integer categoryId);
 
     List<CategoryDto> getAllCategory();
 
-    SuccessDto deleteCategoryById(String categoryId);
+    SuccessDto deleteCategoryById(Integer categoryId);
 }

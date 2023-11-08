@@ -28,13 +28,13 @@ public class TagsController {
 
     @PutMapping("/update")
     @ApiOperation(value = "Update tag")
-    public ResponseEntity<SuccessDto> updateTag(@RequestBody TagsUpdateDto tagsUpdateDto) {
-        return ResponseEntity.ok(tagService.updateTag(tagsUpdateDto));
+    public ResponseEntity<SuccessDto> updateTag(@RequestBody TagsUpdateDto tagsUpdateDto,Integer tagId) {
+        return ResponseEntity.ok(tagService.updateTag(tagsUpdateDto,tagId));
     }
 
     @GetMapping("/{tagId}")
     @ApiOperation(value = "Get tag by ID")
-    public ResponseEntity<TagsDto> getTagById(@PathVariable String tagId) {
+    public ResponseEntity<TagsDto> getTagById(@PathVariable Integer tagId) {
         TagsDto tagsDto = tagService.getTagById(tagId);
         return ResponseEntity.ok(tagsDto);
     }
@@ -55,7 +55,7 @@ public class TagsController {
 
     @DeleteMapping("/delete/{tagId}")
     @ApiOperation(value = "Delete tag by ID")
-    public ResponseEntity<SuccessDto> deleteTagById(@PathVariable String tagId) {
+    public ResponseEntity<SuccessDto> deleteTagById(@PathVariable Integer tagId) {
         return ResponseEntity.ok(tagService.deleteTagById(tagId));
     }
 }

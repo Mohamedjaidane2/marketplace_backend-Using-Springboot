@@ -28,13 +28,13 @@ public class ProductController {
 
     @PutMapping("/update")
     @ApiOperation(value = "Update product")
-    public ResponseEntity<SuccessDto> updateProduct(@RequestBody ProductUpdateDto productUpdateDto) {
-        return ResponseEntity.ok(productService.updateProduct(productUpdateDto));
+    public ResponseEntity<SuccessDto> updateProduct(@RequestBody ProductUpdateDto productUpdateDto,Integer productId) {
+        return ResponseEntity.ok(productService.updateProduct(productUpdateDto,productId));
     }
 
     @GetMapping("/{productId}")
     @ApiOperation(value = "Get product by ID")
-    public ResponseEntity<ProductDto> getProductById(@PathVariable String productId) {
+    public ResponseEntity<ProductDto> getProductById(@PathVariable Integer productId) {
         ProductDto product = productService.getProductById(productId);
         return ResponseEntity.ok(product);
     }
@@ -48,7 +48,7 @@ public class ProductController {
 
     @DeleteMapping("/delete/{productId}")
     @ApiOperation(value = "Delete product by ID")
-    public ResponseEntity<SuccessDto> deleteProductById(@PathVariable String productId) {
+    public ResponseEntity<SuccessDto> deleteProductById(@PathVariable Integer productId) {
         return ResponseEntity.ok(productService.deleteProductById(productId));
     }
 }
