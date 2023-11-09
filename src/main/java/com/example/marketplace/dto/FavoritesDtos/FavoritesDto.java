@@ -1,17 +1,9 @@
 package com.example.marketplace.dto.FavoritesDtos;
-
-import com.example.marketplace.dto.AccountDtos.AccountDto;
-import com.example.marketplace.dto.AdvertisementDtos.AdvertisementDto;
-import com.example.marketplace.entity.Account;
-import com.example.marketplace.entity.Advertisement;
-import com.example.marketplace.entity.Consumer;
 import com.example.marketplace.entity.Favorites;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,23 +15,23 @@ public class FavoritesDto {
 
     private Integer favoritesId;
 
-    private AccountDto account;
+    private Integer accountId;
 
-    private AdvertisementDto advertisement;
+    private Integer advertisementId;
 
     @Override
     public String toString() {
         return "FavoritesDto{" +
                 "favoritesId=" + favoritesId +
-                ", account=" + account +
-                ", advertisement=" + advertisement +
+                ", account=" + accountId +
+                ", advertisement=" + advertisementId +
                 '}';
     }
     public static FavoritesDto customMapping (Favorites favorites){
         return FavoritesDto.builder()
                 .favoritesId(favorites.getFavoritesId())
-                .account(AccountDto.customMapping(favorites.getAccount()))
-                .advertisement(AdvertisementDto.customMapping(favorites.getAdvertisement()))
+                .accountId(favorites.getAccount().getAccountId())
+                .advertisementId(favorites.getAdvertisement().getId())
                 .build();
     }
 

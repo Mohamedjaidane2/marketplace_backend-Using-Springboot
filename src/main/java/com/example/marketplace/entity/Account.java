@@ -39,8 +39,9 @@ public class Account {
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Order> orders;
 
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Favorites> favorites;
+
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<DiscountRequest> discountRequests;

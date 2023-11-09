@@ -9,5 +9,7 @@ public class SuccessMessage {
     public static final String SUCCESSFULLY_ACCEPTED = "Successfully Accepted.";
 
     public static final String SUCCESSFULLY_DECLINED = "Successfully Declined.";
+    public static final String SUCCESSFULLY_ADDED = "Successfully Added.";
+    public static final String SUCCESSFULLY_REMOVED = "Successfully Removed.";
 
 }
