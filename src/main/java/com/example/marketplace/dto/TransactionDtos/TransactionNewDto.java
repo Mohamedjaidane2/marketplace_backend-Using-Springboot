@@ -16,7 +16,13 @@ public class TransactionNewDto {
 
     private Date transaction_date;
 
-    private WalletDto wallet;
+    private Integer walletId;
 
-    private Float amount;
+    private double amount;
+
+    private String action ;
+
+    private double balance;
+
+    private double current_balance;
 }

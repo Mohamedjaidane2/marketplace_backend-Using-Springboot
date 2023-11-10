@@ -28,6 +28,7 @@ public class Product {
     @JoinColumn(name = "sub_category_id",nullable = false)
     private SubCategory subCategory;
 
+
     @ElementCollection
     private List<String> images;
 

@@ -1,7 +1,9 @@
 package com.example.marketplace.controller;
 
+import com.example.marketplace.dto.InformationDtos.InformationNewDto;
 import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 import com.example.marketplace.dto.WalletDtos.WalletDto;
+import com.example.marketplace.dto.WalletDtos.WalletNewDto;
 import com.example.marketplace.service.IWalletServices;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,33 +19,34 @@ public class WalletController {
     private final IWalletServices walletService;
 
     @PostMapping("/create")
-    @ApiOperation(value = "Create a wallet for a user")
-    public ResponseEntity<SuccessDto> createWallet(@RequestParam String userId) {
-        return ResponseEntity.ok(walletService.createWallet(userId));
+    @ApiOperation("Create a wallet ")
+    public ResponseEntity<SuccessDto> createWallet(@RequestBody WalletNewDto walletNewDto) {
+        return ResponseEntity.ok(walletService.createWallet(walletNewDto));
     }
 
-    @GetMapping("/balance/{userId}")
-    @ApiOperation(value = "Get the balance of a user's wallet")
-    public ResponseEntity<WalletDto> getWalletBalance(@PathVariable String userId) {
-        WalletDto walletDto = walletService.getWalletBalance(userId);
-        return ResponseEntity.ok(walletDto);
+    @GetMapping("/balance/{walletId}")
+    @ApiOperation("Get the balance by walletId")
+    public ResponseEntity<Double> getWalletBalance(@PathVariable Integer walletId) {
+        double balance = walletService.getWalletBalance(walletId);
+        return ResponseEntity.ok(balance);
+    }
+    @GetMapping("/wallet/{walletId}")
+    @ApiOperation("Get the Wallet by walletId")
+    public ResponseEntity<WalletDto> getWalletById(@PathVariable Integer walletId) {
+        WalletDto wallet = walletService.getWalletById(walletId);
+        return ResponseEntity.ok(wallet);
     }
 
     @PostMapping("/add-funds")
-    @ApiOperation(value = "Add funds to a user's wallet")
-    public ResponseEntity<SuccessDto> addFundsToWallet(@RequestParam String userId, @RequestParam double amount) {
-        return ResponseEntity.ok(walletService.addFundsToWallet(userId, amount));
-    }
-
-    @PostMapping("/make-payment")
-    @ApiOperation(value = "Make a payment from a user's wallet")
-    public ResponseEntity<SuccessDto> makePayment(@RequestParam String userId, @RequestParam double amount) {
-        return ResponseEntity.ok(walletService.makePayment(userId, amount));
+    @ApiOperation("Add funds to a wallet")
+    public ResponseEntity<SuccessDto> addFundsToWallet(@RequestParam Integer walletId, @RequestParam double amount) {
+        return ResponseEntity.ok(walletService.addFundsToWallet(walletId, amount));
     }
 
     @PostMapping("/withdraw-funds")
-    @ApiOperation(value = "Withdraw funds from a user's wallet")
-    public ResponseEntity<SuccessDto> withdrawFunds(@RequestParam String userId, @RequestParam double amount) {
-        return ResponseEntity.ok(walletService.withdrawFunds(userId, amount));
+    @ApiOperation("Withdraw funds from a wallet")
+    public ResponseEntity<SuccessDto> withdrawFunds(@RequestParam Integer walletId, @RequestParam double amount) {
+        return ResponseEntity.ok(walletService.withdrawFunds(walletId, amount));
     }
 }
+
