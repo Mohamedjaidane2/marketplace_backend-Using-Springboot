@@ -20,29 +20,29 @@ import java.util.List;
 public class OrderController {
     private final IOrderServices orderService;
 
-    @PostMapping("/create")
+    @PostMapping("/create/{accountId}/{advertisementId}")
     @ApiOperation(value = "Create order")
-    public ResponseEntity<SuccessDto> createOrder(@RequestBody OrderNewDto orderNewDto) {
-        return ResponseEntity.ok(orderService.toOrder(orderNewDto));
+    public ResponseEntity<SuccessDto> createOrder(@PathVariable Integer accountId, @PathVariable Integer advertisementId) {
+        return ResponseEntity.ok(orderService.toOrder(accountId,advertisementId));
     }
 
     @GetMapping("/{orderId}")
     @ApiOperation(value = "Get order by ID")
-    public ResponseEntity<OrderDto> getOrderById(@PathVariable String orderId) {
+    public ResponseEntity<OrderDto> getOrderById(@PathVariable Integer orderId) {
         OrderDto order = orderService.getOrderById(orderId);
         return ResponseEntity.ok(order);
     }
 
-    @GetMapping("/account")
+    @GetMapping("/account/{accountId}")
     @ApiOperation(value = "Get orders by account")
-    public ResponseEntity<List<OrderDto>> getOrdersByAccount(@RequestBody AccountDto accountDto) {
-        List<OrderDto> orders = orderService.getOrderByAccount(accountDto);
+    public ResponseEntity<List<OrderDto>> getOrdersByAccount(@PathVariable Integer accountId) {
+        List<OrderDto> orders = orderService.getOrderByAccount(accountId);
         return ResponseEntity.ok(orders);
     }
 
     @DeleteMapping("/cancel/{orderId}")
     @ApiOperation(value = "Cancel order by ID")
-    public ResponseEntity<SuccessDto> cancelOrderById(@PathVariable String orderId) {
+    public ResponseEntity<SuccessDto> cancelOrderById(@PathVariable Integer orderId) {
         return ResponseEntity.ok(orderService.cancelOrderById(orderId));
     }
 

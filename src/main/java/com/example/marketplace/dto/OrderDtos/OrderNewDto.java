@@ -15,14 +15,7 @@ import java.util.Date;
 @Builder
 @Data
 public class OrderNewDto {
+    private Integer accountId;
 
-    private Date orderDate;
-
-    private Float totalPrice;
-
-    private EOrderStatus orderStatus;
-
-    private AdvertisementDto advertisement;
-
-    private AccountDto account;
+    private Integer advertisementId;
 }

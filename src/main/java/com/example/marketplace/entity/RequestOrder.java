@@ -17,7 +17,7 @@ import java.util.Date;
 @Table(name = "request_order")
 public class RequestOrder {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int requestOrderId;
 
     @ManyToOne(fetch = FetchType.EAGER)

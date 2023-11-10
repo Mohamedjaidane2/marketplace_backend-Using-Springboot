@@ -15,15 +15,13 @@ import java.util.Date;
 @Table(name = "orders")
 public class Order {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer orderId;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "order_date", updatable = false)
     private Date orderDate;
-
-    private Float totalPrice;
 
     @Enumerated(EnumType.STRING)
     private EOrderStatus orderStatus;

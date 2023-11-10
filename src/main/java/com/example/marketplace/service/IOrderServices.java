@@ -8,13 +8,13 @@ import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 import java.util.List;
 
 public interface IOrderServices {
-    SuccessDto toOrder(OrderNewDto orderNewDto);
+    SuccessDto toOrder(Integer accountId,Integer advertisementId);
 
-    OrderDto getOrderById(String orderId);
+    OrderDto getOrderById(Integer orderId);
 
-    List<OrderDto> getOrderByAccount(AccountDto accountDto);
+    List<OrderDto> getOrderByAccount(Integer accountId);
 
-    SuccessDto cancelOrderById(String orderId);
+    SuccessDto cancelOrderById(Integer orderId);
 
     List<OrderDto> getAllOrders();
 }

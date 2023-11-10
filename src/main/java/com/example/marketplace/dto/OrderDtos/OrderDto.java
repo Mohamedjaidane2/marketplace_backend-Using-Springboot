@@ -24,13 +24,11 @@ public class OrderDto {
 
     private Date orderDate;
 
-    private Float totalPrice;
-
     private EOrderStatus orderStatus;
 
-    private AdvertisementDto advertisement;
+    private Integer advertisementId;
 
-    private AccountDto account;
+    private Integer accountId;
 
     public static List<OrderDto> customListMapping(List<Order> orders) {
         if(orders==null) return null;
@@ -47,20 +45,18 @@ public class OrderDto {
         return "OrderDto{" +
                 "orderId=" + orderId +
                 ", orderDate=" + orderDate +
-                ", totalPrice=" + totalPrice +
                 ", orderStatus=" + orderStatus +
-                ", advertisement=" + advertisement +
-                ", account=" + account +
+                ", advertisementId=" + advertisementId +
+                ", accountId=" + accountId +
                 '}';
     }
     public static OrderDto customMapping (Order order){
         return OrderDto.builder()
                 .orderId(order.getOrderId())
                 .orderDate(order.getOrderDate())
-                .totalPrice(order.getTotalPrice())
                 .orderStatus(order.getOrderStatus())
-                .advertisement(AdvertisementDto.customMapping(order.getAdvertisement()))
-                .account(AccountDto.customMapping(order.getAccount()))
+                .accountId(order.getAccount().getAccountId())
+                .advertisementId(order.getAdvertisement().getId())
                 .build();
     }
 }
