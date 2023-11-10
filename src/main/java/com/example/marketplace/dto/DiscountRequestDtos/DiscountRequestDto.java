@@ -1,5 +1,6 @@
 package com.example.marketplace.dto.DiscountRequestDtos;
 
+import com.example.marketplace.Enum.EDiscountRequestStats;
 import com.example.marketplace.dto.AccountDtos.AccountDto;
 import com.example.marketplace.dto.AdvertisementDtos.AdvertisementDto;
 import com.example.marketplace.entity.*;
@@ -18,11 +19,14 @@ import java.util.List;
 public class DiscountRequestDto {
     private int requestedDiscountId;
 
-    private AccountDto account;
+    private int advertisementId;
 
-    private AdvertisementDto advertisement;
+    private int accountId;
 
-    private Float requestedAmount;
+    private double requestedAmount;
+
+    private double counterDiscountAmount;
+    private EDiscountRequestStats eDiscountRequestStats;
 
     private Date requestDate;
 
@@ -40,9 +44,11 @@ public class DiscountRequestDto {
     public String toString() {
         return "RequestedDiscountDto{" +
                 "requestedDiscountId=" + requestedDiscountId +
-                ", account=" + account +
-                ", advertisement=" + advertisement +
+                "eDiscountRequestStats=" + eDiscountRequestStats +
+                ", accountId=" + accountId +
+                ", advertisementId=" + advertisementId +
                 ", requestedAmount=" + requestedAmount +
+                ", counterDiscountAmount=" + counterDiscountAmount +
                 ", requestDate=" + requestDate +
                 '}';
     }
@@ -50,8 +56,10 @@ public class DiscountRequestDto {
         return DiscountRequestDto.builder()
                 .requestedDiscountId(discountRequest.getRequestedDiscountId())
                 .requestedAmount(discountRequest.getRequestedAmount())
-                .advertisement(AdvertisementDto.customMapping(discountRequest.getAdvertisement()))
-                .account(AccountDto.customMapping(discountRequest.getAccount()))
+                .eDiscountRequestStats(discountRequest.getEDiscountRequestStats())
+                .counterDiscountAmount(discountRequest.getCounterDiscountAmount())
+                .accountId(discountRequest.getAccount().getAccountId())
+                .advertisementId(discountRequest.getAdvertisement().getId())
                 .requestDate(discountRequest.getRequestDate())
                 .build();
     }

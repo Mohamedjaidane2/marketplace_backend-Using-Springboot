@@ -24,16 +24,6 @@ public class AdvertisementUpdateDtos {
 
     private String description;
 
-    private Integer accountId;
-
-    private Integer productId;
-
-    private EAdvertisementStats advertisementStats;
-
-    private EAdvertisementSoldStats advertisementSoldStats;
-
-    private Float price;
-
-    private Float oldPrice;
+    private Double price;
 
 }

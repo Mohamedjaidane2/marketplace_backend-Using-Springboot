@@ -13,7 +13,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder
 @Data
-public class DiscountRequestUpdateDto {
+public class DiscountRequestUpdateCounterDto {
 
-    private double requestedAmount;
+    private double counterDiscountAmount;
 }

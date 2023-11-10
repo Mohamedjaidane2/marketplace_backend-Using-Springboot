@@ -68,15 +68,4 @@ public class AdvertisementController {
         return ResponseEntity.ok(advertisementService.deleteAdvertisement(advertisementId));
     }
 
-    @PostMapping("/acceptDiscount")
-    @ApiOperation(value = "Accept discount request")
-    public ResponseEntity<SuccessDto> acceptDiscount(@RequestBody DiscountRequestDto discountRequestDto) {
-        return ResponseEntity.ok(advertisementService.acceptDiscount(discountRequestDto));
-    }
-
-    @PostMapping("/declineDiscount")
-    @ApiOperation(value = "Decline discount request")
-    public ResponseEntity<SuccessDto> declineDiscount(@RequestBody DiscountRequestDto discountRequestDto) {
-        return ResponseEntity.ok(advertisementService.declineDiscount(discountRequestDto));
-    }
 }

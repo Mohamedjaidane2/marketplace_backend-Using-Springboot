@@ -7,4 +7,14 @@ public class SuccessMessage {
     public static final String SUCCESSFULLY_DELETED = "Successfully Deleted.";
 
     public static final String STATUS_CHANGED = "Status Successfully Changed.";
+    public static final String SUCCESSFULLY_REMOVED = "Status Successfully Removed.";
+
+
+
+    public static final String SUCCESSFULLY_ACCEPTED= "Status Successfully Accepted.";
+
+    public static final String SUCCESSFULLY_DECLINED = "Status Successfully Declined.";
+    public static final String SUCCESSFULLY_ADDED = "Status Successfully Added.";
+
+
 }

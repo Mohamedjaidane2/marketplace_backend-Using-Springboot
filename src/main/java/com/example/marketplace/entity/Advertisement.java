@@ -43,9 +43,9 @@ public class Advertisement {
     @OneToMany(mappedBy = "advertisement", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Order> orders;
 
-    private Float price;
+    private Double price;
     @Column(name = "old_price")
-    private Float oldPrice;
+    private Double oldPrice;
 
     @OneToMany(mappedBy = "advertisement", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<RequestOrder> requestOrders;  // New relationship

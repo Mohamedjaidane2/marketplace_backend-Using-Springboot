@@ -1,5 +1,6 @@
 package com.example.marketplace.service.Impl;
 
+import com.example.marketplace.Enum.EAdvertisementSoldStats;
 import com.example.marketplace.Enum.EOrderStatus;
 import com.example.marketplace.dto.AccountDtos.AccountDto;
 import com.example.marketplace.dto.CategoryDtos.CategoryDto;
@@ -67,10 +68,15 @@ public class OrderServiceImpl implements IOrderServices {
         // Save the created Order
         orderRepository.save(order);
 
+        // Update the AdvertisementSoldStatus to IN_PROGRESS
+        advertisement.setAdvertisementSoldStats(EAdvertisementSoldStats.IN_PROGRESS);
+        advertisementRepository.save(advertisement);
+
         return SuccessDto.builder()
                 .message("Order placed successfully")
                 .build();
     }
+
 
 
 

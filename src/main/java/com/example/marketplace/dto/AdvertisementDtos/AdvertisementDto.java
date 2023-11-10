@@ -37,9 +37,9 @@ public class AdvertisementDto {
 
     private List<OrderDto> orders;
 
-    private Float price;
+    private Double price;
 
-    private Float oldPrice;
+    private Double oldPrice;
 
     private List<RequestOrderDto> requestOrders;
 
