@@ -30,21 +30,21 @@ public class AdvertisementController {
 
     @PutMapping("/update")
     @ApiOperation(value = "Update advertisement")
-    public ResponseEntity<SuccessDto> updateAdvertisement(@RequestBody AdvertisementUpdateDtos advertisementUpdateDto) {
-        return ResponseEntity.ok(advertisementService.updateAdvertisement(advertisementUpdateDto));
+    public ResponseEntity<SuccessDto> updateAdvertisement(@RequestBody AdvertisementUpdateDtos advertisementUpdateDto,Integer advertisementId) {
+        return ResponseEntity.ok(advertisementService.updateAdvertisement(advertisementUpdateDto,advertisementId));
     }
 
     @GetMapping("/{advertisementId}")
     @ApiOperation(value = "Get advertisement by ID")
-    public ResponseEntity<AdvertisementDto> getAdvertisementById(@PathVariable String advertisementId) {
+    public ResponseEntity<AdvertisementDto> getAdvertisementById(@PathVariable Integer advertisementId) {
         AdvertisementDto advertisementDto = advertisementService.getAdvertisementById(advertisementId);
         return ResponseEntity.ok(advertisementDto);
     }
 
-    @GetMapping("/account")
+    @GetMapping("/account/{accountId}")
     @ApiOperation(value = "Get advertisements by account")
-    public ResponseEntity<List<AdvertisementDto>> getAdvertisementByAccount(@RequestBody AccountDto accountDto) {
-        List<AdvertisementDto> advertisements = advertisementService.getAdvertisementByAccount(accountDto);
+    public ResponseEntity<List<AdvertisementDto>> getAdvertisementByAccount(@PathVariable Integer accountId) {
+        List<AdvertisementDto> advertisements = advertisementService.getAdvertisementByAccount(accountId);
         return ResponseEntity.ok(advertisements);
     }
 

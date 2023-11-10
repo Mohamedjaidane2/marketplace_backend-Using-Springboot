@@ -16,7 +16,7 @@ import java.util.List;
 @Table(name = "account")
 public class Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer accountId;
 
     @CreationTimestamp
@@ -39,8 +39,9 @@ public class Account {
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Order> orders;
 
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Favorites> favorites;
+
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<DiscountRequest> discountRequests;

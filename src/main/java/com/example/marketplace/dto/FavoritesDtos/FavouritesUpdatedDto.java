@@ -12,8 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 public class FavouritesUpdatedDto {
+    private Integer accountId;
 
-    private AccountDto account;
-
-    private AdvertisementDto advertisement;
+    private Integer advertisementId;
 }

@@ -1,10 +1,16 @@
 package com.example.marketplace.service;
 
-import com.example.marketplace.dto.AdvertisementDtos.AdvertisementDto;
+import com.example.marketplace.dto.FavoritesDtos.FavoritesDto;
 import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 
-public interface IFavoritesServices {
-    SuccessDto addToFavorites (Integer favoriteId , AdvertisementDto advertisementDto);
+import java.util.List;
 
-    SuccessDto removeFromFavorites (Integer favoriteId , AdvertisementDto advertisementDto );
+public interface IFavoritesServices {
+    SuccessDto addToFavorites(Integer advertisementId, Integer accountId);
+
+    SuccessDto removeFromFavorites(Integer favoriteId);
+
+    List<FavoritesDto> getFavoritesByAccountId(Integer accountId);
+
+    List<FavoritesDto> getAllFavorites();
 }

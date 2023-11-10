@@ -1,5 +1,6 @@
 package com.example.marketplace.dto.AdvertisementDtos;
 
+import com.example.marketplace.Enum.EAdvertisementSoldStats;
 import com.example.marketplace.Enum.EAdvertisementStats;
 import com.example.marketplace.dto.AccountDtos.AccountDto;
 import com.example.marketplace.dto.OrderDtos.OrderDto;
@@ -23,20 +24,16 @@ public class AdvertisementUpdateDtos {
 
     private String description;
 
-    private AccountDto account;
+    private Integer accountId;
 
-    private ProductDto product;
+    private Integer productId;
 
     private EAdvertisementStats advertisementStats;
 
-    private List<OrderDto> orders;
+    private EAdvertisementSoldStats advertisementSoldStats;
 
     private Float price;
 
     private Float oldPrice;
-
-    private List<RequestOrderDto> requestOrders;
-
-    private Date creationDate;
 
 }

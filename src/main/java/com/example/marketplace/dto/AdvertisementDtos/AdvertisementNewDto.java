@@ -24,19 +24,15 @@ public class AdvertisementNewDto {
 
     private String description;
 
-    private AccountDto account;
+    private Integer accountId;
 
-    private ProductDto product;
+    private Integer productId;
 
     private EAdvertisementStats advertisementStats;
 
-    private List<OrderDto> orders;
+    private EAdvertisementSoldStats advertisementSoldStats;
 
     private Float price;
 
     private Float oldPrice;
-
-    private List<RequestOrderDto> requestOrders;
-
-    private Date creationDate;
 }

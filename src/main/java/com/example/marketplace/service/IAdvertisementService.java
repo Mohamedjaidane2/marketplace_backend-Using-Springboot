@@ -12,12 +12,12 @@ import java.util.List;
 public interface IAdvertisementService {
     SuccessDto postAdvertisement(AdvertisementNewDto advertisementNewDto);
 
-    SuccessDto updateAdvertisement(AdvertisementUpdateDtos advertisementUpdateDto);
+    SuccessDto updateAdvertisement(AdvertisementUpdateDtos advertisementUpdateDto,Integer advertisementId);
 
 
-    AdvertisementDto getAdvertisementById(String advertisementId);
+    AdvertisementDto getAdvertisementById(Integer advertisementId);
 
-    List<AdvertisementDto> getAdvertisementByAccount(AccountDto accountDto);
+    List<AdvertisementDto> getAdvertisementByAccount(Integer accountId);
 
     List<AdvertisementDto> getAllAdvertisement();
 

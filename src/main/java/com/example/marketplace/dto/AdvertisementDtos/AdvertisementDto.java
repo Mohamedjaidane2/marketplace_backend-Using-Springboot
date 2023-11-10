@@ -27,9 +27,9 @@ public class AdvertisementDto {
 
     private String description;
 
-    private AccountDto account;
+    private int accountId;
 
-    private ProductDto product;
+    private int productId;
 
     private EAdvertisementStats advertisementStats;
 
@@ -51,10 +51,10 @@ public class AdvertisementDto {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", account=" + account +
-                ", product=" + product +
                 ", advertisementStats=" + advertisementStats +
                 ", advertisementSoldStats=" + advertisementSoldStats +
+                ", productId=" + productId +
+                ", sellerId=" + accountId +
                 ", orders=" + orders +
                 ", price=" + price +
                 ", oldPrice=" + oldPrice +
@@ -69,8 +69,8 @@ public class AdvertisementDto {
                 .id(advertisement.getId())
                 .title(advertisement.getTitle())
                 .description(advertisement.getDescription())
-                .account(AccountDto.customMapping(advertisement.getAccount()))
-                .product(ProductDto.customMapping(advertisement.getProduct()))
+                .accountId(advertisement.getAccount().getAccountId())
+                .productId(advertisement.getProduct().getId())
                 .advertisementStats(advertisement.getAdvertisementStats())
                 .advertisementSoldStats(advertisement.getAdvertisementSoldStats())
                 .orders(OrderDto.customListMapping(advertisement.getOrders()))

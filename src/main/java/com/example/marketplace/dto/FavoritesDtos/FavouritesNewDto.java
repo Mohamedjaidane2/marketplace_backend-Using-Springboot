@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class FavouritesNewDto {
 
-    private AccountDto account;
+    private Integer accountId;
 
-    private AdvertisementDto advertisement;
+    private Integer advertisementId;
 }
