@@ -6,7 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,7 +15,5 @@ public class TagsNewDto {
 
     private String tagName;
 
-    private SubCategoryDto subcategory;
-
-    private Date creationDate;
+    private Integer subcategoryId;
 }

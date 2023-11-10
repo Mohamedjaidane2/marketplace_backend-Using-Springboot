@@ -19,11 +19,5 @@ public class SubCategoryUpdateDto {
 
     private String subCategoryName;
 
-    private CategoryDto category;
-
-    private List<BrandDto> brands;
-
-    private List<Tag> tags;
-
-    private Date creationDate;
+    private Integer categoryId;
 }

@@ -17,7 +17,4 @@ public class CategoryNewDto {
 
     private String categoryName;
 
-    private List<SubCategoryDto> subCategories;
-
-    private Date creationDate;
 }

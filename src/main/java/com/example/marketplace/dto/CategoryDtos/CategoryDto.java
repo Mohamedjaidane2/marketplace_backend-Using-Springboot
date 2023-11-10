@@ -1,6 +1,7 @@
 package com.example.marketplace.dto.CategoryDtos;
 
 import com.example.marketplace.dto.SubCategoryDtos.SubCategoryDto;
+import com.example.marketplace.dto.SubCategoryDtos.SubCategorySimpleDto;
 import com.example.marketplace.entity.Category;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,7 +21,7 @@ public class CategoryDto {
 
     private String categoryName;
 
-    private List<SubCategoryDto> subCategories;
+    private List<SubCategorySimpleDto> subCategories;
 
     private Date creationDate;
 
@@ -38,7 +39,7 @@ public class CategoryDto {
         return CategoryDto.builder()
                 .categoryId(category.getCategoryId())
                 .categoryName(category.getCategoryName())
-                .subCategories(SubCategoryDto.customListMapping(category.getSubCategories()))
+                .subCategories(SubCategorySimpleDto.customListMapping(category.getSubCategories()))
                 .creationDate(category.getCreationDate())
                 .build();
     }

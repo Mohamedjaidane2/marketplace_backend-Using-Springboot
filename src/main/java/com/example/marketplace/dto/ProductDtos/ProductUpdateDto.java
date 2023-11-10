@@ -4,6 +4,7 @@ import com.example.marketplace.Enum.EColor;
 import com.example.marketplace.Enum.EGender;
 import com.example.marketplace.Enum.EProductStatus;
 import com.example.marketplace.entity.Category;
+import com.example.marketplace.entity.SubCategory;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,7 +19,7 @@ import java.util.List;
 @Data
 public class ProductUpdateDto {
 
-    private Category category;
+    private Integer subcategoryId;
 
     private List<String> images;
 

@@ -1,9 +1,7 @@
 package com.example.marketplace.dto.BrandDtos;
 
 import com.example.marketplace.dto.SubCategoryDtos.SubCategoryDto;
-import com.example.marketplace.entity.BankData;
 import com.example.marketplace.entity.Brand;
-import com.example.marketplace.entity.SubCategory;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,8 +21,6 @@ public class BrandDto {
 
     private String brandName;
 
-    private SubCategoryDto subcategory;
-
     private Date creationDate;
 
     @Override
@@ -32,7 +28,6 @@ public class BrandDto {
         return "BrandDto{" +
                 "brandId=" + brandId +
                 ", brandName='" + brandName + '\'' +
-                ", subcategory=" + subcategory +
                 ", creationDate=" + creationDate +
                 '}';
     }
@@ -40,7 +35,6 @@ public class BrandDto {
         return BrandDto.builder()
                 .brandId(brand.getBrandId())
                 .brandName(brand.getBrandName())
-                .subcategory(SubCategoryDto.customMapping(brand.getSubcategory()))
                 .creationDate(brand.getCreationDate())
                 .build();
     }

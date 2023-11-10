@@ -21,12 +21,12 @@ import java.util.List;
 @Table(name = "product")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "category_id")
-    private Category category;
+    @ManyToOne
+    @JoinColumn(name = "sub_category_id",nullable = false)
+    private SubCategory subCategory;
 
 
     @ElementCollection

@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface ITagServices {
     SuccessDto createTag(TagsNewDto tagsNewDto);
-    SuccessDto updateTag(TagsUpdateDto tagsUpdateDto);
-    TagsDto getTagById(String tagId);
+    SuccessDto updateTag(TagsUpdateDto tagsUpdateDto,Integer tagId);
+    TagsDto getTagById(Integer tagId);
     TagsDto getTagByName(String tagName);
     List<TagsDto> getAllTags();
-    SuccessDto deleteTagById(String tagId);
+    SuccessDto deleteTagById(Integer tagId);
 }

@@ -28,13 +28,13 @@ public class SubCategoryController {
 
     @PutMapping("/update")
     @ApiOperation(value = "Update subcategory")
-    public ResponseEntity<SuccessDto> updateSubCategory(@RequestBody SubCategoryUpdateDto subCategoryUpdateDto) {
-        return ResponseEntity.ok(subCategoryService.updateSubCategory(subCategoryUpdateDto));
+    public ResponseEntity<SuccessDto> updateSubCategory(@RequestBody SubCategoryUpdateDto subCategoryUpdateDto,Integer subCategoryId) {
+        return ResponseEntity.ok(subCategoryService.updateSubCategory(subCategoryUpdateDto,subCategoryId));
     }
 
     @GetMapping("/{subCategoryId}")
     @ApiOperation(value = "Get subcategory by ID")
-    public ResponseEntity<SubCategoryDto> getSubCategoryById(@PathVariable String subCategoryId) {
+    public ResponseEntity<SubCategoryDto> getSubCategoryById(@PathVariable Integer subCategoryId) {
         SubCategoryDto subCategoryDto = subCategoryService.getSubCategoryById(subCategoryId);
         return ResponseEntity.ok(subCategoryDto);
     }
@@ -48,7 +48,7 @@ public class SubCategoryController {
 
     @DeleteMapping("/delete/{subCategoryId}")
     @ApiOperation(value = "Delete subcategory by ID")
-    public ResponseEntity<SuccessDto> deleteSubCategoryById(@PathVariable String subCategoryId) {
+    public ResponseEntity<SuccessDto> deleteSubCategoryById(@PathVariable Integer subCategoryId) {
         return ResponseEntity.ok(subCategoryService.deleteSubCategoryById(subCategoryId));
     }
 }
