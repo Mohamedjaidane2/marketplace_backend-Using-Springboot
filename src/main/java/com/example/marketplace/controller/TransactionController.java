@@ -27,15 +27,15 @@ public class TransactionController {
 
     @GetMapping("/{transactionId}")
     @ApiOperation(value = "Get transaction by ID")
-    public ResponseEntity<TransactionDto> getTransactionById(@PathVariable String transactionId) {
+    public ResponseEntity<TransactionDto> getTransactionById(@PathVariable Integer transactionId) {
         TransactionDto transactionDto = transactionService.getTransactionById(transactionId);
         return ResponseEntity.ok(transactionDto);
     }
 
     @GetMapping("/user/{userId}")
     @ApiOperation(value = "Get transactions by user")
-    public ResponseEntity<List<TransactionDto>> getTransactionsByUser(@PathVariable String userId) {
-        List<TransactionDto> transactions = transactionService.getTransactionsByUser(userId);
+    public ResponseEntity<List<TransactionDto>> getTransactionsByWalletID(@PathVariable Integer walletId) {
+        List<TransactionDto> transactions = transactionService.getTransactionsByWalletID(walletId);
         return ResponseEntity.ok(transactions);
     }
 
@@ -46,9 +46,9 @@ public class TransactionController {
         return ResponseEntity.ok(transactions);
     }
 
-    @DeleteMapping("/cancel/{transactionId}")
+    @PutMapping("/cancel/{transactionId}")
     @ApiOperation(value = "Cancel transaction by ID")
-    public ResponseEntity<SuccessDto> cancelTransaction(@PathVariable String transactionId) {
+    public ResponseEntity<SuccessDto> cancelTransaction(@PathVariable Integer transactionId) {
         return ResponseEntity.ok(transactionService.cancelTransaction(transactionId));
     }
 }

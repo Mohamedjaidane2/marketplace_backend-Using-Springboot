@@ -10,11 +10,12 @@ public interface ITransactionServices {
 
     SuccessDto createTransaction(TransactionNewDto transactionNewDto);
 
-    TransactionDto getTransactionById(String transactionId);
+    TransactionDto getTransactionById(Integer transactionId);
 
-    List<TransactionDto> getTransactionsByUser(String userId);
+    List<TransactionDto> getTransactionsByWalletID(Integer WalletId);
 
     List<TransactionDto> getAllTransactions();
 
-    SuccessDto cancelTransaction(String transactionId);
+    SuccessDto cancelTransaction(Integer transactionId);
+
 }

@@ -15,9 +15,6 @@ import java.util.List;
 @Data
 public class WalletNewDto {
 
-    private Float balance;
+    private Integer AccountId ;
 
-    private AccountDto account;
-
-    private List<TransactionDto> transactions;
 }
