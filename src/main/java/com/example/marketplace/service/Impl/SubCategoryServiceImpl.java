@@ -82,7 +82,7 @@ public class SubCategoryServiceImpl implements ISubCategoryServices {
         }
         subCategoryRepository.delete(subCategory.get());
         return SuccessDto.builder()
-                .message(SuccessMessage.SUCCESSFULLY_DELETED)
+                .message(SuccessMessage.SUCCESSFULLY_REMOVED)
                 .build();
     }
 }

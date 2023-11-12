@@ -77,7 +77,7 @@ public class CategoryServiceImpl implements ICategoryServices {
         categoryRepository.delete(category.get());
 
         return SuccessDto.builder()
-                .message(SuccessMessage.SUCCESSFULLY_DELETED)
+                .message(SuccessMessage.SUCCESSFULLY_REMOVED)
                 .build();
     }
 }

@@ -112,7 +112,7 @@ public class TagServiceImpl implements ITagServices {
         tagRepository.delete(tag.get());
 
         return SuccessDto.builder()
-                .message(SuccessMessage.SUCCESSFULLY_DELETED)
+                .message(SuccessMessage.SUCCESSFULLY_REMOVED)
                 .build();
     }
 }

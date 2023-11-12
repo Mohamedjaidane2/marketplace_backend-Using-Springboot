@@ -1,5 +1,7 @@
 package com.example.marketplace.service.Impl;
 
+import com.example.marketplace.Enum.EAdvertisementSoldStats;
+import com.example.marketplace.Enum.EAdvertisementStats;
 import com.example.marketplace.dto.AccountDtos.AccountDto;
 import com.example.marketplace.dto.AdvertisementDtos.AdvertisementDto;
 import com.example.marketplace.dto.AdvertisementDtos.AdvertisementNewDto;
@@ -45,9 +47,10 @@ public class AdvertisementServiceImpl implements IAdvertisementService {
                 .product(product.orElseThrow(() -> new EntityNotFoundException("Product not found", ErrorCodes.PRODUCT_NOT_FOUND)))
                 .title(advertisementNewDto.getTitle())
                 .description(advertisementNewDto.getDescription())
-                .advertisementStats(advertisementNewDto.getAdvertisementStats())
-                .advertisementSoldStats(advertisementNewDto.getAdvertisementSoldStats())
-                .oldPrice(advertisementNewDto.getOldPrice())
+                .advertisementStats(EAdvertisementStats.UNDER_REVIEW)
+                .advertisementSoldStats(EAdvertisementSoldStats.AVAILABLE)
+                .oldPrice(advertisementNewDto.getPrice())
+                .price(advertisementNewDto.getPrice())
                 .build();
 
         advertisementRepository.save(advertisement);
@@ -64,22 +67,8 @@ public class AdvertisementServiceImpl implements IAdvertisementService {
             throw new EntityNotFoundException("Advertisement not found", ErrorCodes.ADVERTISEMENT_NOT_FOUND);
         }
 
-        // Check if the provided productId exists
-        Optional<Product> existingProduct = productRepository.findById(advertisementUpdateDto.getProductId());
-        if (existingProduct.isEmpty()) {
-            throw new EntityNotFoundException("Product not found", ErrorCodes.PRODUCT_NOT_FOUND);
-        }
-
-        // Check if the provided accountId exists
-        Optional<Account> existingAccount = accountRepository.findById(advertisementUpdateDto.getAccountId());
-        if (existingAccount.isEmpty()) {
-            throw new EntityNotFoundException("Account not found", ErrorCodes.ACCOUNT_NOT_FOUND);
-        }
-
         Advertisement updatedAdvertisement = modelMapper.map(advertisementUpdateDto, Advertisement.class);
         updatedAdvertisement.setId(advertisementId);
-        updatedAdvertisement.setProduct(existingProduct.get());
-        updatedAdvertisement.setAccount(existingAccount.get());
 
         advertisementRepository.save(updatedAdvertisement);
 
@@ -135,29 +124,11 @@ public class AdvertisementServiceImpl implements IAdvertisementService {
         advertisementRepository.delete(advertisement.get());
 
         return SuccessDto.builder()
-                .message(SuccessMessage.SUCCESSFULLY_DELETED)
+                .message(SuccessMessage.SUCCESSFULLY_REMOVED)
                 .build();
     }
 
-    @Override
-    public SuccessDto acceptDiscount(DiscountRequestDto discountRequestDto) {
-        // Implement the logic for accepting a discount
-        // You may need to update the Advertisement entity or perform other actions
 
-        return SuccessDto.builder()
-                .message(SuccessMessage.SUCCESSFULLY_ACCEPTED)
-                .build();
-    }
-
-    @Override
-    public SuccessDto declineDiscount(DiscountRequestDto discountRequestDto) {
-        // Implement the logic for declining a discount
-        // You may need to update the Advertisement entity or perform other actions
-
-        return SuccessDto.builder()
-                .message(SuccessMessage.SUCCESSFULLY_DECLINED)
-                .build();
-    }
 
     @Override
     public List<AdvertisementDto> getMyFeedList(AccountDto accountDto) {

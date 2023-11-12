@@ -40,12 +40,13 @@ public class Advertisement {
     @Enumerated(EnumType.STRING)
     private EAdvertisementSoldStats advertisementSoldStats;
 
-    @OneToMany(mappedBy = "advertisement", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Order> orders;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "order_id")
+    private Order order;
 
-    private Float price;
+    private Double price;
     @Column(name = "old_price")
-    private Float oldPrice;
+    private Double oldPrice;
 
     @OneToMany(mappedBy = "advertisement", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<RequestOrder> requestOrders;  // New relationship

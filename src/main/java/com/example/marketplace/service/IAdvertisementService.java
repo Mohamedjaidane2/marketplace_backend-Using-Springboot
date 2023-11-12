@@ -24,8 +24,4 @@ public interface IAdvertisementService {
     List<AdvertisementDto> getMyFeedList(AccountDto accountDto);
 
     SuccessDto deleteAdvertisement(Integer advertisementId );
-
-    SuccessDto acceptDiscount(DiscountRequestDto discountRequestDto);
-
-    SuccessDto declineDiscount(DiscountRequestDto discountRequestDto);
 }

@@ -15,11 +15,5 @@ import java.util.Date;
 @Data
 public class DiscountRequestNewDto {
 
-    private AccountDto account;
-
-    private AdvertisementDto advertisement;
-
-    private Float requestedAmount;
-
-    private Date requestDate;
+    private double requestedAmount;
 }

@@ -28,11 +28,5 @@ public class AdvertisementNewDto {
 
     private Integer productId;
 
-    private EAdvertisementStats advertisementStats;
-
-    private EAdvertisementSoldStats advertisementSoldStats;
-
-    private Float price;
-
-    private Float oldPrice;
+    private Double price;
 }

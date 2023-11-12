@@ -1,5 +1,6 @@
 package com.example.marketplace.entity;
 
+import com.example.marketplace.Enum.EDiscountRequestStats;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,7 +29,10 @@ public class DiscountRequest {
     @JoinColumn(name = "advertisement_id")
     private Advertisement advertisement;
 
-    private Float requestedAmount;
+    private double requestedAmount;
+    private EDiscountRequestStats eDiscountRequestStats;
+
+    private double counterDiscountAmount;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)

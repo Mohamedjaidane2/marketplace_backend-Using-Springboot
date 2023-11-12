@@ -35,11 +35,11 @@ public class AdvertisementDto {
 
     private EAdvertisementSoldStats advertisementSoldStats;
 
-    private List<OrderDto> orders;
+    private int orderId;
 
-    private Float price;
+    private Double price;
 
-    private Float oldPrice;
+    private Double oldPrice;
 
     private List<RequestOrderDto> requestOrders;
 
@@ -55,7 +55,7 @@ public class AdvertisementDto {
                 ", advertisementSoldStats=" + advertisementSoldStats +
                 ", productId=" + productId +
                 ", sellerId=" + accountId +
-                ", orders=" + orders +
+                ", orderId=" + orderId +
                 ", price=" + price +
                 ", oldPrice=" + oldPrice +
                 ", requestOrders=" + requestOrders +
@@ -63,8 +63,8 @@ public class AdvertisementDto {
                 '}';
     }
 
-    public static AdvertisementDto customMapping(Advertisement advertisement){
-        return AdvertisementDto.builder()
+    public static AdvertisementDto customMapping(Advertisement advertisement) {
+        AdvertisementDtoBuilder builder = AdvertisementDto.builder()
                 .creationDate(advertisement.getCreationDate())
                 .id(advertisement.getId())
                 .title(advertisement.getTitle())
@@ -73,12 +73,18 @@ public class AdvertisementDto {
                 .productId(advertisement.getProduct().getId())
                 .advertisementStats(advertisement.getAdvertisementStats())
                 .advertisementSoldStats(advertisement.getAdvertisementSoldStats())
-                .orders(OrderDto.customListMapping(advertisement.getOrders()))
                 .price(advertisement.getPrice())
                 .oldPrice(advertisement.getOldPrice())
-                .requestOrders(RequestOrderDto.customListMapping(advertisement.getRequestOrders()))
-                .build();
+                .requestOrders(RequestOrderDto.customListMapping(advertisement.getRequestOrders()));
+
+        Order order = advertisement.getOrder();
+        if (order != null) {
+            builder.orderId(order.getOrderId());
+        }
+
+        return builder.build();
     }
+
     public static List<AdvertisementDto> customListMapping(List<Advertisement> advertisements){
         if (advertisements == null) return null;
         ArrayList<AdvertisementDto> advertisementDtoArrayList = new ArrayList<>();
