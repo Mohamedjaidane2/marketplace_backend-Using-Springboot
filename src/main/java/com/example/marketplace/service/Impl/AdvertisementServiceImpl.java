@@ -124,7 +124,7 @@ public class AdvertisementServiceImpl implements IAdvertisementService {
         advertisementRepository.delete(advertisement.get());
 
         return SuccessDto.builder()
-                .message(SuccessMessage.SUCCESSFULLY_DELETED)
+                .message(SuccessMessage.SUCCESSFULLY_REMOVED)
                 .build();
     }
 

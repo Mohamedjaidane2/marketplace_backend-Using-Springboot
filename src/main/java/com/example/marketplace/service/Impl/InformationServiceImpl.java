@@ -91,7 +91,7 @@ public class InformationServiceImpl implements IInformationServices {
         iInformationRepository.delete(information.get());
         return SuccessDto
                 .builder()
-                .message(SuccessMessage.SUCCESSFULLY_DELETED)
+                .message(SuccessMessage.SUCCESSFULLY_REMOVED)
                 .build();
     }
     }

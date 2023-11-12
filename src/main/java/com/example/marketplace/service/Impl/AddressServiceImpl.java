@@ -91,7 +91,7 @@ public class AddressServiceImpl implements IAddressService {
         iAddressRepository.delete(address.get());
         return SuccessDto
                 .builder()
-                .message(SuccessMessage.SUCCESSFULLY_DELETED)
+                .message(SuccessMessage.SUCCESSFULLY_REMOVED)
                 .build();
     }
 }

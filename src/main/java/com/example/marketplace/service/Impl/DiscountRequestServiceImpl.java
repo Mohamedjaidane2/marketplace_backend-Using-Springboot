@@ -164,6 +164,8 @@ public class DiscountRequestServiceImpl implements IDiscountRequestServices {
         // Retrieve the related advertisement
         Advertisement advertisement = discountRequest.getAdvertisement();
 
+        Account account = discountRequest.getAccount();
+
         // Set the price of the advertisement to the requested amount in the discount request
         advertisement.setPrice(discountRequest.getRequestedAmount());
 
@@ -171,7 +173,7 @@ public class DiscountRequestServiceImpl implements IDiscountRequestServices {
         advertisementRepository.save(advertisement);
 
         // Use the toOrder method to place an order for the advertisement
-        orderService.toOrder(advertisement.getId(),advertisement.getAccount().getAccountId());
+        orderService.toOrder(account.getAccountId(),advertisement.getId());
 
         // Delete all discount requests related to the advertisement
         List<DiscountRequest> discountRequests = discountRequestRepository.findByAdvertisementId(advertisement.getId());

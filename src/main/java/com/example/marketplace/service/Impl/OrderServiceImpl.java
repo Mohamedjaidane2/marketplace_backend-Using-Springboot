@@ -54,7 +54,7 @@ public class OrderServiceImpl implements IOrderServices {
         }
 
         // Check if someone else has already ordered this advertisement
-        if (!advertisement.getOrders().isEmpty()) {
+        if (advertisement.getOrder() != null) {
             throw new InvalidOperationException("Someone else has already ordered this advertisement", ErrorCodes.ADVERTISEMENT_ALREADY_ORDERED);
         }
 
@@ -70,6 +70,7 @@ public class OrderServiceImpl implements IOrderServices {
 
         // Update the AdvertisementSoldStatus to IN_PROGRESS
         advertisement.setAdvertisementSoldStats(EAdvertisementSoldStats.IN_PROGRESS);
+        advertisement.setOrder(order); // Set the order for the advertisement
         advertisementRepository.save(advertisement);
 
         return SuccessDto.builder()
@@ -77,14 +78,8 @@ public class OrderServiceImpl implements IOrderServices {
                 .build();
     }
 
-
-
-
-
-
     @Override
     public List<OrderDto> getOrderByAccount(Integer accountId) {
-
         Optional<Account> accountOptional = accountRepository.findById(accountId);
 
         if (accountOptional.isEmpty()) {
@@ -100,26 +95,42 @@ public class OrderServiceImpl implements IOrderServices {
 
     @Override
     public SuccessDto cancelOrderById(Integer orderId) {
-
         Optional<Order> orderOptional = orderRepository.findById(orderId);
-        if(orderOptional.isEmpty()){
+        if (orderOptional.isEmpty()) {
             throw new InvalidOperationException("Order not found in orders", ErrorCodes.ORDER_NOT_FOUND);
         }
-        orderRepository.delete(orderOptional.get());
+
+        Order order = orderOptional.get();
+
+        // Check if the order is already canceled
+        if (order.getOrderStatus() == EOrderStatus.CANCELLED) {
+            throw new InvalidOperationException("Order is already canceled", ErrorCodes.ORDER_ALREADY_CANCELLED);
+        }
+
+        // Update the orderStatus to EOrderStatus.CANCELLED
+        order.setOrderStatus(EOrderStatus.CANCELLED);
+        orderRepository.save(order);
+
+        // Remove the order from the advertisement
+        Advertisement advertisement = order.getAdvertisement();
+        advertisement.setOrder(null); // Remove the order from the advertisement
+        advertisementRepository.save(advertisement);
 
         return SuccessDto.builder()
-                .message(SuccessMessage.SUCCESSFULLY_REMOVED)
+                .message(SuccessMessage.SUCCESSFULLY_CANCELLED)
                 .build();
     }
+
+
     @Override
     public OrderDto getOrderById(Integer orderId) {
-
         Optional<Order> order = orderRepository.findById(orderId);
         if (order.isEmpty()) {
             throw new EntityNotFoundException("Order not found", ErrorCodes.ORDER_NOT_FOUND);
         }
         return OrderDto.customMapping(order.get());
     }
+
     @Override
     public List<OrderDto> getAllOrders() {
         return orderRepository.findAll()

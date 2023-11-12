@@ -99,7 +99,7 @@ public class BrandServiceImpl implements IBrandServices {
         }
         iBrandRepository.delete(brand.get());
         return SuccessDto.builder()
-                .message(SuccessMessage.SUCCESSFULLY_DELETED)
+                .message(SuccessMessage.SUCCESSFULLY_REMOVED)
                 .build();
     }
 }
