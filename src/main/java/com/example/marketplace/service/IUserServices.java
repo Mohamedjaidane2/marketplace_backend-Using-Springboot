@@ -3,6 +3,7 @@ package com.example.marketplace.service;
 import com.example.marketplace.dto.UserDtos.UserDto;
 import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 import com.example.marketplace.dto.UserDtos.UserNewDto;
+import com.example.marketplace.entity.User;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public interface IUserServices {
 
     UserDto getUserById(String userId);
 
-    UserDto getUserByEmail(String email);
+    User getUserByEmail(String email);
 
     List<UserDto> getAllUsers();
 

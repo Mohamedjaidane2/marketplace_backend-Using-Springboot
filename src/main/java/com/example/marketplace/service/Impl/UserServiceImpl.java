@@ -3,16 +3,62 @@ package com.example.marketplace.service.Impl;
 import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 import com.example.marketplace.dto.UserDtos.UserDto;
 import com.example.marketplace.dto.UserDtos.UserNewDto;
+import com.example.marketplace.entity.Address;
+import com.example.marketplace.entity.Information;
+import com.example.marketplace.entity.User;
+import com.example.marketplace.exception.EntityNotFoundException;
+import com.example.marketplace.exception.ErrorCodes;
+import com.example.marketplace.exception.InvalidOperationException;
+import com.example.marketplace.repository.IUserRepository;
 import com.example.marketplace.service.IUserServices;
+import com.example.marketplace.utils.SuccessMessage;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements IUserServices {
+@RequiredArgsConstructor
+public class UserServiceImpl implements IUserServices , UserDetailsService {
+
+    private final IUserRepository repository;
+    private final PasswordEncoder passwordEncoder;
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        User user = repository.findByEmail(email);
+        if (user == null){
+            throw new EntityNotFoundException("User not found", ErrorCodes.USER_NOT_FOUND);
+        }
+        Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        user.getRoles().forEach(role -> {
+            authorities.add(new SimpleGrantedAuthority(role.getName()));
+        });
+
+        return new org.springframework.security.core.userdetails.User(user.getEmail(),user.getPassword(),authorities);
+    }
     @Override
     public SuccessDto registerUser(UserNewDto userNewDto) {
-        return null;
+        User user = repository.findByEmail(userNewDto.getEmail());
+
+        if (user != null) {
+            throw new InvalidOperationException("User already exist with this email", ErrorCodes.USER_ALREADY_IN_USE);
+        }
+
+        User newUser = User.builder()
+                .email(userNewDto.getEmail())
+                .password(passwordEncoder.encode(userNewDto.getPassword()))
+                .build();
+        repository.save(newUser);
+        return SuccessDto.builder()
+                .message(SuccessMessage.SUCCESSFULLY_CREATED)
+                .build();
     }
 
     @Override
@@ -31,8 +77,13 @@ public class UserServiceImpl implements IUserServices {
     }
 
     @Override
-    public UserDto getUserByEmail(String email) {
-        return null;
+    public User getUserByEmail(String email) {
+        User user = repository.findByEmail(email);
+
+        if (user == null) {
+            throw new EntityNotFoundException("User Not Found !", ErrorCodes.USER_NOT_FOUND);
+        }
+        return user;
     }
 
     @Override
@@ -44,4 +95,6 @@ public class UserServiceImpl implements IUserServices {
     public SuccessDto deleteUserById(String userId) {
         return null;
     }
+
+
 }
