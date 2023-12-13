@@ -48,8 +48,6 @@ public class Advertisement {
     @Column(name = "old_price")
     private Double oldPrice;
 
-    @OneToMany(mappedBy = "advertisement", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<RequestOrder> requestOrders;  // New relationship
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)

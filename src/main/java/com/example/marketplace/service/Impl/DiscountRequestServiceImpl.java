@@ -45,7 +45,7 @@ public class DiscountRequestServiceImpl implements IDiscountRequestServices {
         Advertisement advertisement = advertisementRepository.findById(advertisementId)
                 .orElseThrow(() -> new EntityNotFoundException("Advertisement not found", ErrorCodes.ADVERTISEMENT_NOT_FOUND));
 
-        // Check if the account is the owner of the advertisement
+        // Check if the account is the not the owner of  the advertisement
         if (advertisement.getAccount().getAccountId().equals(accountId)) {
             throw new InvalidOperationException("You can't send a discount request to your own advertisement", ErrorCodes.CANNOT_SEND_DISCOUNT_TO_OWN_ADVERTISEMENT);
         }

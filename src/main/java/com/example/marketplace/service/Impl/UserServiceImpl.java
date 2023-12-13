@@ -3,12 +3,12 @@ package com.example.marketplace.service.Impl;
 import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 import com.example.marketplace.dto.UserDtos.UserDto;
 import com.example.marketplace.dto.UserDtos.UserNewDto;
-import com.example.marketplace.entity.Address;
-import com.example.marketplace.entity.Information;
-import com.example.marketplace.entity.User;
+import com.example.marketplace.entity.*;
 import com.example.marketplace.exception.EntityNotFoundException;
 import com.example.marketplace.exception.ErrorCodes;
 import com.example.marketplace.exception.InvalidOperationException;
+import com.example.marketplace.repository.IAccountRepository;
+import com.example.marketplace.repository.IHistoryRepository;
 import com.example.marketplace.repository.IUserRepository;
 import com.example.marketplace.service.IUserServices;
 import com.example.marketplace.utils.SuccessMessage;
@@ -20,16 +20,21 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class UserServiceImpl implements IUserServices , UserDetailsService {
 
     private final IUserRepository repository;
     private final PasswordEncoder passwordEncoder;
+
+    private final IAccountRepository iAccountRepository;
+    private final IHistoryRepository iHistoryRepository;
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = repository.findByEmail(email);
@@ -51,10 +56,22 @@ public class UserServiceImpl implements IUserServices , UserDetailsService {
             throw new InvalidOperationException("User already exist with this email", ErrorCodes.USER_ALREADY_IN_USE);
         }
 
-        User newUser = User.builder()
+
+            Account account = Account.builder()
+                    .ownerEmail(userNewDto.getEmail())
+                    .build();
+            iAccountRepository.save(account);
+
+        iAccountRepository.save(account);
+
+
+        User newUser = Consumer.builder()
+                .account(iAccountRepository.findByOwnerEmail(userNewDto.getEmail()))
                 .email(userNewDto.getEmail())
                 .password(passwordEncoder.encode(userNewDto.getPassword()))
                 .build();
+
+
         repository.save(newUser);
         return SuccessDto.builder()
                 .message(SuccessMessage.SUCCESSFULLY_CREATED)

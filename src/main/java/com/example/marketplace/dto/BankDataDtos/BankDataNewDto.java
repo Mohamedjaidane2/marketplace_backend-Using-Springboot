@@ -17,5 +17,5 @@ public class BankDataNewDto {
 
     private String rib;
 
-    private AccountDto account;
+    private Integer accountId;
 }

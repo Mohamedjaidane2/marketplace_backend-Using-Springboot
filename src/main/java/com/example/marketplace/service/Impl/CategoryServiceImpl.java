@@ -7,6 +7,7 @@ import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 import com.example.marketplace.entity.Category;
 import com.example.marketplace.exception.EntityNotFoundException;
 import com.example.marketplace.exception.ErrorCodes;
+import com.example.marketplace.exception.InvalidOperationException;
 import com.example.marketplace.repository.ICategoryRepository;
 import com.example.marketplace.service.ICategoryServices;
 import com.example.marketplace.utils.SuccessMessage;
@@ -28,6 +29,10 @@ public class CategoryServiceImpl implements ICategoryServices {
 
     @Override
     public SuccessDto addCategory(CategoryNewDto categoryNewDto) {
+        Optional<Category> check = categoryRepository.findByCategoryName(categoryNewDto.getCategoryName());
+        if(check.isPresent()){
+         throw new InvalidOperationException("category already exist ! ",ErrorCodes.CATEGORY_ALREADY_IN_USE);
+        }
         Category category = Category.builder()
                 .categoryName(categoryNewDto.getCategoryName())
                 .build();

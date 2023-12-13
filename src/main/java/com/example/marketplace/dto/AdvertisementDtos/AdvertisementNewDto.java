@@ -1,11 +1,6 @@
 package com.example.marketplace.dto.AdvertisementDtos;
 
-import com.example.marketplace.Enum.EAdvertisementSoldStats;
-import com.example.marketplace.Enum.EAdvertisementStats;
-import com.example.marketplace.dto.AccountDtos.AccountDto;
-import com.example.marketplace.dto.OrderDtos.OrderDto;
-import com.example.marketplace.dto.ProductDtos.ProductDto;
-import com.example.marketplace.dto.RequestOrderDtos.RequestOrderDto;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

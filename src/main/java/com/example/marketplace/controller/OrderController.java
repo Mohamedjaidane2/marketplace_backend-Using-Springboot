@@ -52,4 +52,10 @@ public class OrderController {
         List<OrderDto> orders = orderService.getAllOrders();
         return ResponseEntity.ok(orders);
     }
+    @GetMapping("/all/{accountId}")
+    @ApiOperation(value = "Get all orders by account")
+    public ResponseEntity<List<OrderDto>> getAllOrdersByOwner(@PathVariable Integer accountId) {
+        List<OrderDto> orders = orderService.getAllOrdersByOwner(accountId);
+        return ResponseEntity.ok(orders);
+    }
 }

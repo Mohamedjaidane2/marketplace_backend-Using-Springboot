@@ -17,4 +17,6 @@ public interface IOrderServices {
     SuccessDto cancelOrderById(Integer orderId);
 
     List<OrderDto> getAllOrders();
+
+    List<OrderDto> getAllOrdersByOwner(Integer idOwner);
 }

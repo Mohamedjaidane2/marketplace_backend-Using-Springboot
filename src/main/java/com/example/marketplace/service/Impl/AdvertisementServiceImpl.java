@@ -47,7 +47,7 @@ public class AdvertisementServiceImpl implements IAdvertisementService {
                 .product(product.orElseThrow(() -> new EntityNotFoundException("Product not found", ErrorCodes.PRODUCT_NOT_FOUND)))
                 .title(advertisementNewDto.getTitle())
                 .description(advertisementNewDto.getDescription())
-                .advertisementStats(EAdvertisementStats.UNDER_REVIEW)
+                .advertisementStats(EAdvertisementStats.NO_VALUE)
                 .advertisementSoldStats(EAdvertisementSoldStats.AVAILABLE)
                 .oldPrice(advertisementNewDto.getPrice())
                 .price(advertisementNewDto.getPrice())

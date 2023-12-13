@@ -1,12 +1,9 @@
 package com.example.marketplace.service.Impl;
 
 import com.example.marketplace.Enum.EAdvertisementSoldStats;
+import com.example.marketplace.Enum.EAdvertisementStats;
 import com.example.marketplace.Enum.EOrderStatus;
-import com.example.marketplace.dto.AccountDtos.AccountDto;
-import com.example.marketplace.dto.CategoryDtos.CategoryDto;
-import com.example.marketplace.dto.FavoritesDtos.FavoritesDto;
 import com.example.marketplace.dto.OrderDtos.OrderDto;
-import com.example.marketplace.dto.OrderDtos.OrderNewDto;
 import com.example.marketplace.dto.SuccessDtos.SuccessDto;
 import com.example.marketplace.entity.*;
 import com.example.marketplace.exception.EntityNotFoundException;
@@ -16,7 +13,6 @@ import com.example.marketplace.repository.IAccountRepository;
 import com.example.marketplace.repository.IAdvertisementRepository;
 import com.example.marketplace.repository.IOrderRepository;
 import com.example.marketplace.service.IOrderServices;
-import com.example.marketplace.service.IRequestOrderServices;
 import com.example.marketplace.utils.SuccessMessage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -114,6 +110,7 @@ public class OrderServiceImpl implements IOrderServices {
         // Remove the order from the advertisement
         Advertisement advertisement = order.getAdvertisement();
         advertisement.setOrder(null); // Remove the order from the advertisement
+        advertisement.setAdvertisementSoldStats(EAdvertisementSoldStats.AVAILABLE);
         advertisementRepository.save(advertisement);
 
         return SuccessDto.builder()
@@ -134,6 +131,14 @@ public class OrderServiceImpl implements IOrderServices {
     @Override
     public List<OrderDto> getAllOrders() {
         return orderRepository.findAll()
+                .stream()
+                .map(OrderDto::customMapping)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<OrderDto> getAllOrdersByOwner(Integer idOwner) {
+        return orderRepository.findAllOrdersByAccountId(idOwner)
                 .stream()
                 .map(OrderDto::customMapping)
                 .collect(Collectors.toList());

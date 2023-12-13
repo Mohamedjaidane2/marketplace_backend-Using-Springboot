@@ -13,11 +13,13 @@ import lombok.NoArgsConstructor;
 @Data
 public class BankDataUpdateDto {
 
+    private Integer bankDataId;
+
     private String bankName;
 
     private String rib;
 
-    private AccountDto account;
+    //private AccountDto account;
 
 
 }

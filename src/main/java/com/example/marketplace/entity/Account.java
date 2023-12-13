@@ -19,6 +19,8 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer accountId;
 
+    private String ownerEmail;
+
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "creation_date", updatable = false)
@@ -51,4 +53,6 @@ public class Account {
 
     @Enumerated(EnumType.STRING)
     private ESellerLevel sellerLevel;
+
+    private boolean isActivated ;
 }

@@ -24,7 +24,7 @@ public class BankDataDto {
 
     private String rib;
 
-    private AccountDto account;
+  //  private AccountDto account;
 
     @Override
     public String toString() {
@@ -32,7 +32,6 @@ public class BankDataDto {
                 "bankData_id=" + bankData_id +
                 ", bankName='" + bankName + '\'' +
                 ", rib='" + rib + '\'' +
-                ", account=" + account +
                 '}';
     }
 
@@ -41,7 +40,6 @@ public class BankDataDto {
                 .bankData_id(bankData.getBankData_id())
                 .bankName(bankData.getBankName())
                 .rib(bankData.getRib())
-                .account(AccountDto.customMapping(bankData.getAccount()))
                 .build();
     }
     public static List<BankDataDto> customListMapping(List<BankData> bankData){

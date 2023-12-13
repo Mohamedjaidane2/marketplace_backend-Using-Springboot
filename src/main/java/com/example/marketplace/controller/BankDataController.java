@@ -1,6 +1,5 @@
 package com.example.marketplace.controller;
 
-import com.example.marketplace.dto.AccountDtos.AccountDto;
 import com.example.marketplace.dto.BankDataDtos.BankDataDto;
 import com.example.marketplace.dto.BankDataDtos.BankDataNewDto;
 import com.example.marketplace.dto.BankDataDtos.BankDataUpdateDto;
@@ -35,15 +34,8 @@ public class BankDataController {
 
     @GetMapping("/{bankDataId}")
     @ApiOperation(value = "Get bank data by ID")
-    public ResponseEntity<BankDataDto> getBankDataById(@PathVariable String bankDataId) {
+    public ResponseEntity<BankDataDto> getBankDataById(@PathVariable Integer bankDataId) {
         BankDataDto bankDataDto = bankDataService.getBankDataById(bankDataId);
-        return ResponseEntity.ok(bankDataDto);
-    }
-
-    @GetMapping("/account")
-    @ApiOperation(value = "Get bank data by account")
-    public ResponseEntity<BankDataDto> getBankDataByAccount(@RequestBody AccountDto accountDto) {
-        BankDataDto bankDataDto = bankDataService.getBankDataByAccount(accountDto);
         return ResponseEntity.ok(bankDataDto);
     }
 
@@ -56,7 +48,7 @@ public class BankDataController {
 
     @DeleteMapping("/delete/{bankDataId}")
     @ApiOperation(value = "Delete bank data by ID")
-    public ResponseEntity<SuccessDto> deleteBankDataById(@PathVariable String bankDataId) {
+    public ResponseEntity<SuccessDto> deleteBankDataById(@PathVariable Integer bankDataId) {
         return ResponseEntity.ok(bankDataService.deleteBankDataById(bankDataId));
     }
 }

@@ -1,7 +1,9 @@
 package com.example.marketplace.service.Impl;
 
 import com.example.marketplace.dto.AccountDtos.AccountDto;
+import com.example.marketplace.dto.AccountDtos.AccountNewDto;
 import com.example.marketplace.dto.SuccessDtos.SuccessDto;
+import com.example.marketplace.entity.Account;
 import com.example.marketplace.entity.User;
 import com.example.marketplace.service.IAccountService;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,7 @@ import java.util.List;
 @Service
 @Transactional
 public class AccountServiceImpl implements IAccountService {
+
 
     @Override
     public SuccessDto deactivateAccount(AccountDto accountDto) {

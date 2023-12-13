@@ -22,7 +22,7 @@ public class History {
     private int history_id;
 
     @ManyToOne
-    @JoinColumn(name = "advertisment_id", nullable = false)
+    @JoinColumn(name = "advertisment_id", nullable = true)
     private Advertisement advertisment;
 
 }

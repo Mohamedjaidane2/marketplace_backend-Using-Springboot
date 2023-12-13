@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorValue(value = "ADMIN")
 @Table(name = "admin")
 public class Admin extends User {
 

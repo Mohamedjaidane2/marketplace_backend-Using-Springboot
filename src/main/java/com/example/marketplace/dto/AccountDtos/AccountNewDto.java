@@ -24,22 +24,5 @@ import java.util.List;
 public class AccountNewDto {
 
     private Date creationDate;
-
-    private WalletDto wallet;
-
-    private InformationDto information;
-
-    private List<SalesDto> sales;
-
-    private List<BankDataDto> bankData;
-
-    private List<OrderDto> orders;
-
-    private List<FavoritesDto> favorites;
-
-    private List<DiscountRequestDto> discountRequests;
-
-    private List<AdvertisementDto> advertisements;
-
     private ESellerLevel sellerLevel;
 }

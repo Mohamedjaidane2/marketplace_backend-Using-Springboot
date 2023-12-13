@@ -25,7 +25,7 @@ public class ProductDto {
     private int id;
 
 
-    private SubCategoryDto subCategory;
+    private String subCategoryname;
 
 //    private List<String> images;
 
@@ -43,7 +43,6 @@ public class ProductDto {
     public String toString() {
         return "ProductDto{" +
                 "id=" + id +
-                ", subCategory=" + subCategory +
 //                ", images=" + images +
                 ", ProductStatus=" + ProductStatus +
                 ", color=" + color +
@@ -55,7 +54,7 @@ public class ProductDto {
     public static ProductDto customMapping (Product product){
         return ProductDto.builder()
                 .id(product.getId())
-                .subCategory(SubCategoryDto.customMapping(product.getSubCategory()))
+                .subCategoryname(product.getSubCategory().getSubCategoryName())
 //                .images(product.getImages())
                 .ProductStatus(product.getProductStatus())
                 .color(product.getColor())

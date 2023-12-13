@@ -14,11 +14,11 @@ public interface IBankDataService {
     SuccessDto updateBankData(BankDataUpdateDto bankDataUpdateDto);
 
 
-    BankDataDto getBankDataById(String bankDataId);
+    BankDataDto getBankDataById(Integer bankDataId);
 
     BankDataDto getBankDataByAccount(AccountDto accountDto);
 
     List<BankDataDto> getAllBankData();
 
-    SuccessDto deleteBankDataById(String bankDataId);
+    SuccessDto deleteBankDataById(Integer bankDataId);
 }

@@ -1,30 +1,30 @@
 package com.example.marketplace.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Data
 @AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
-@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorValue(value = "CONSUMER")
 @Table(name = "consumer")
 public class Consumer extends User {
+    @Builder
+    public Consumer(Integer id, String password, String email, String loginStatus, Date creationDate, List<Notification> notifications, Collection<Roles> roles, String pseudo, Account account ,History history) {
+        super(id, password, email, loginStatus, creationDate, notifications, roles);
+        this.pseudo = pseudo;
+        this.account = account;
+        this.history = history;
+    }
 
     private String pseudo;
-
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "creation_date", updatable = false)
-    private Date creationDate;
-
-    private String email;
 
     @OneToMany(mappedBy="consumer")
     private List<FeedBack> feedBacks;
@@ -34,6 +34,6 @@ public class Consumer extends User {
     private Account account;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "history_id", nullable = false)
+    @JoinColumn(name = "history_id", nullable = true)
     private History history;
 }

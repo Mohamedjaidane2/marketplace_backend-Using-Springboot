@@ -1,10 +1,6 @@
 package com.example.marketplace.dto.AdvertisementDtos;
 import com.example.marketplace.Enum.EAdvertisementSoldStats;
 import com.example.marketplace.Enum.EAdvertisementStats;
-import com.example.marketplace.dto.AccountDtos.AccountDto;
-import com.example.marketplace.dto.OrderDtos.OrderDto;
-import com.example.marketplace.dto.ProductDtos.ProductDto;
-import com.example.marketplace.dto.RequestOrderDtos.RequestOrderDto;
 import com.example.marketplace.entity.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -41,8 +37,6 @@ public class AdvertisementDto {
 
     private Double oldPrice;
 
-    private List<RequestOrderDto> requestOrders;
-
     private Date creationDate;
 
     @Override
@@ -58,7 +52,6 @@ public class AdvertisementDto {
                 ", orderId=" + orderId +
                 ", price=" + price +
                 ", oldPrice=" + oldPrice +
-                ", requestOrders=" + requestOrders +
                 ", creationDate=" + creationDate +
                 '}';
     }
@@ -73,9 +66,7 @@ public class AdvertisementDto {
                 .productId(advertisement.getProduct().getId())
                 .advertisementStats(advertisement.getAdvertisementStats())
                 .advertisementSoldStats(advertisement.getAdvertisementSoldStats())
-                .price(advertisement.getPrice())
-                .oldPrice(advertisement.getOldPrice())
-                .requestOrders(RequestOrderDto.customListMapping(advertisement.getRequestOrders()));
+                .price(advertisement.getPrice());
 
         Order order = advertisement.getOrder();
         if (order != null) {
